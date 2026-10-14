@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imobiliária Marco Zero · Casas, apartamentos e terrenos para comprar ou alugar</title>
+  <meta name="description" content="Imobiliária fictícia com busca de imóveis por finalidade, tipo, bairro, preço e quartos, mapa interativo, favoritos e contato direto com o corretor. Site de demonstração com dados fictícios.">
+  <link rel="canonical" href="https://www.exemplo.com.br/">
+  <meta property="og:title" content="Imobiliária Marco Zero · Casas, apartamentos e terrenos para comprar ou alugar">
+  <meta property="og:description" content="Busque por finalidade, tipo, bairro, preço e quartos; compare no mapa; salve favoritos e fale com um corretor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.exemplo.com.br/">
+  <meta name="theme-color" content="#12233D">
+  <link rel="icon" href="assets/img/icone.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Imobiliária Marco Zero",
+    "description": "Imobiliária fictícia de demonstração: venda e locação de casas, apartamentos, terrenos e imóveis comerciais.",
+    "url": "https://www.exemplo.com.br/",
+    "telephone": "+55 00 00000-0000",
+    "email": "contato@exemplo.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Cidade",
+      "addressRegion": "UF",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -1.455, "longitude": -48.49 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:30", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
+    ],
+    "identifier": { "@type": "PropertyValue", "propertyID": "CRECI", "value": "CRECI-UF 00000-J" },
+    "areaServed": "Cidade/UF"
+  }
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="config.js" defer></script>
+  <script src="assets/js/modelo.js" defer></script>
+  <script src="assets/js/mapa.js" defer></script>
+  <script src="assets/js/leads.js" defer></script>
+  <script src="assets/js/detalhe.js" defer></script>
+  <script src="assets/js/catalogo.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Sprite: "fotos" dos imóveis (composições SVG) e ícones. Referenciadas por id com <use>. -->
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="g-ceu-dia" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFD6E2"/><stop offset="1" stop-color="#EDF2F4"/></linearGradient>
+      <linearGradient id="g-ceu-tarde" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9A86A"/><stop offset="1" stop-color="#F3DDC0"/></linearGradient>
+      <linearGradient id="g-ceu-noite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1B30"/><stop offset="1" stop-color="#2A456E"/></linearGradient>
+      <linearGradient id="g-interior" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7F0E3"/><stop offset="1" stop-color="#E6DBC5"/></linearGradient>
+      <linearGradient id="g-agua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9DBBC9"/><stop offset="1" stop-color="#7FA2B4"/></linearGradient>
+    </defs>
+
+    <symbol id="foto-casa-dia" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <circle cx="330" cy="62" r="22" fill="#F7E7B5"/>
+      <rect y="212" width="400" height="88" fill="#8A9A5B"/>
+      <rect y="250" width="400" height="50" fill="#5F6B3C" opacity=".45"/>
+      <rect x="110" y="132" width="180" height="82" fill="#E2D5BC"/>
+      <polygon points="92,136 200,66 308,136" fill="#12233D"/>
+      <rect x="252" y="82" width="14" height="32" fill="#CDBB9A"/>
+      <rect x="185" y="160" width="30" height="54" fill="#5F6B3C"/>
+      <rect x="130" y="150" width="34" height="30" fill="#BFD6E2" stroke="#FBF8F1" stroke-width="3"/>
+      <rect x="236" y="150" width="34" height="30" fill="#BFD6E2" stroke="#FBF8F1" stroke-width="3"/>
+      <rect x="342" y="172" width="8" height="46" fill="#7A5A3A"/>
+      <circle cx="346" cy="158" r="30" fill="#5F6B3C"/>
+      <path d="M186 214h28l28 86H158z" fill="#CDBB9A"/>
+    </symbol>
+
+    <symbol id="foto-casa-tarde" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-tarde)"/>
+      <circle cx="80" cy="120" r="28" fill="#F6D28F"/>
+      <rect y="212" width="400" height="88" fill="#6F7B45"/>
+      <rect y="250" width="400" height="50" fill="#4C562F" opacity=".5"/>
+      <rect x="110" y="132" width="180" height="82" fill="#D8C8AA"/>
+      <polygon points="92,136 200,66 308,136" fill="#12233D"/>
+      <rect x="185" y="160" width="30" height="54" fill="#4C562F"/>
+      <rect x="130" y="150" width="34" height="30" fill="#F2C27B" stroke="#FBF8F1" stroke-width="3"/>
+      <rect x="236" y="150" width="34" height="30" fill="#F2C27B" stroke="#FBF8F1" stroke-width="3"/>
+      <rect x="300" y="100" width="90" height="114" fill="#2A456E" opacity=".25"/>
+      <rect x="20" y="150" width="70" height="64" fill="#2A456E" opacity=".2"/>
+      <path d="M186 214h28l28 86H158z" fill="#BBA887"/>
+    </symbol>
+
+    <symbol id="foto-casa-colina" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <path d="M0 300V190C80 150 160 160 260 120S360 110 400 130V300z" fill="#8A9A5B"/>
+      <path d="M0 300V240C120 210 260 230 400 200V300z" fill="#5F6B3C"/>
+      <rect x="140" y="96" width="150" height="110" fill="#F1E9D8"/>
+      <rect x="140" y="96" width="150" height="10" fill="#12233D"/>
+      <rect x="120" y="150" width="190" height="6" fill="#12233D"/>
+      <rect x="155" y="116" width="40" height="26" fill="#BFD6E2"/>
+      <rect x="235" y="116" width="40" height="26" fill="#BFD6E2"/>
+      <rect x="155" y="166" width="40" height="40" fill="#BFD6E2"/>
+      <rect x="235" y="166" width="40" height="40" fill="#5F6B3C"/>
+      <path d="M40 150l6-30 6 30z M60 160l5-22 5 22z" fill="#4C562F"/>
+      <circle cx="330" cy="60" r="18" fill="#F7E7B5"/>
+    </symbol>
+
+    <symbol id="foto-apto-fachada" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <rect x="120" y="36" width="160" height="214" fill="#2A456E"/>
+      <rect x="120" y="36" width="160" height="8" fill="#12233D"/>
+      <g fill="#EDF2F4">
+        <rect x="136" y="56" width="26" height="22"/><rect x="174" y="56" width="26" height="22"/><rect x="212" y="56" width="26" height="22"/><rect x="250" y="56" width="18" height="22"/>
+        <rect x="136" y="92" width="26" height="22"/><rect x="174" y="92" width="26" height="22"/><rect x="212" y="92" width="26" height="22"/><rect x="250" y="92" width="18" height="22"/>
+        <rect x="136" y="128" width="26" height="22"/><rect x="174" y="128" width="26" height="22"/><rect x="212" y="128" width="26" height="22"/><rect x="250" y="128" width="18" height="22"/>
+        <rect x="136" y="164" width="26" height="22"/><rect x="174" y="164" width="26" height="22"/><rect x="212" y="164" width="26" height="22"/><rect x="250" y="164" width="18" height="22"/>
+        <rect x="136" y="200" width="26" height="22"/><rect x="174" y="200" width="26" height="22"/><rect x="212" y="200" width="26" height="22"/><rect x="250" y="200" width="18" height="22"/>
+      </g>
+      <rect x="182" y="226" width="36" height="24" fill="#5F6B3C"/>
+      <rect y="250" width="400" height="50" fill="#CDBB9A"/>
+      <circle cx="70" cy="200" r="34" fill="#5F6B3C"/><rect x="66" y="220" width="8" height="30" fill="#7A5A3A"/>
+      <circle cx="340" cy="206" r="28" fill="#8A9A5B"/><rect x="336" y="222" width="8" height="28" fill="#7A5A3A"/>
+    </symbol>
+
+    <symbol id="foto-apto-noite" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-noite)"/>
+      <circle cx="70" cy="60" r="18" fill="#F3EBDB"/>
+      <rect x="120" y="36" width="160" height="214" fill="#0E1B30"/>
+      <g fill="#F2C27B">
+        <rect x="136" y="56" width="26" height="22"/><rect x="212" y="56" width="26" height="22"/>
+        <rect x="174" y="92" width="26" height="22"/><rect x="250" y="92" width="18" height="22"/>
+        <rect x="136" y="128" width="26" height="22"/><rect x="212" y="128" width="26" height="22"/><rect x="250" y="128" width="18" height="22"/>
+        <rect x="174" y="164" width="26" height="22"/>
+        <rect x="136" y="200" width="26" height="22"/><rect x="212" y="200" width="26" height="22"/>
+      </g>
+      <g fill="#2A456E">
+        <rect x="174" y="56" width="26" height="22"/><rect x="250" y="56" width="18" height="22"/>
+        <rect x="136" y="92" width="26" height="22"/><rect x="212" y="92" width="26" height="22"/>
+        <rect x="174" y="128" width="26" height="22"/>
+        <rect x="136" y="164" width="26" height="22"/><rect x="212" y="164" width="26" height="22"/><rect x="250" y="164" width="18" height="22"/>
+        <rect x="174" y="200" width="26" height="22"/><rect x="250" y="200" width="18" height="22"/>
+      </g>
+      <rect x="182" y="226" width="36" height="24" fill="#F2C27B" opacity=".8"/>
+      <rect y="250" width="400" height="50" fill="#1B3358"/>
+    </symbol>
+
+    <symbol id="foto-terreno" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <rect y="150" width="400" height="150" fill="#A9B57A"/>
+      <path d="M0 150C100 140 300 160 400 150V300H0z" fill="#8A9A5B"/>
+      <path d="M60 180 L340 180 L390 290 L10 290 Z" fill="none" stroke="#12233D" stroke-width="3" stroke-dasharray="10 8"/>
+      <g stroke="#7A5A3A" stroke-width="4" stroke-linecap="round"><path d="M60 180v-26M340 180v-26M10 290v-26M390 290v-26"/></g>
+      <g fill="#D9A24A"><rect x="56" y="150" width="8" height="8"/><rect x="336" y="150" width="8" height="8"/><rect x="6" y="260" width="8" height="8"/><rect x="386" y="260" width="8" height="8"/></g>
+      <path d="M120 240c4-10 8-10 12 0M250 220c4-10 8-10 12 0M180 270c4-10 8-10 12 0" fill="none" stroke="#5F6B3C" stroke-width="3"/>
+      <circle cx="200" cy="235" r="9" fill="none" stroke="#12233D" stroke-width="3"/><path d="M200 220v30M185 235h30" stroke="#12233D" stroke-width="3"/>
+      <circle cx="330" cy="60" r="20" fill="#F7E7B5"/>
+    </symbol>
+
+    <symbol id="foto-terreno-tarde" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-tarde)"/>
+      <circle cx="300" cy="140" r="30" fill="#F6D28F"/>
+      <rect y="150" width="400" height="150" fill="#8A9A5B"/>
+      <path d="M0 150C100 140 300 160 400 150V300H0z" fill="#6F7B45"/>
+      <path d="M60 180 L340 180 L390 290 L10 290 Z" fill="none" stroke="#12233D" stroke-width="3" stroke-dasharray="10 8"/>
+      <g stroke="#5A4028" stroke-width="4" stroke-linecap="round"><path d="M60 180v-26M340 180v-26M10 290v-26M390 290v-26"/></g>
+      <path d="M40 150l8-40 8 40z M330 150l10-50 10 50z M360 150l8-36 8 36z" fill="#2A456E" opacity=".35"/>
+    </symbol>
+
+    <symbol id="foto-terreno-lagoa" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <rect y="140" width="400" height="160" fill="#8A9A5B"/>
+      <path d="M0 220C120 200 280 240 400 210V300H0z" fill="url(#g-agua)"/>
+      <path d="M40 250q20-6 40 0t40 0M220 265q20-6 40 0t40 0" fill="none" stroke="#EDF2F4" stroke-width="3" opacity=".7"/>
+      <path d="M60 170 L340 170 L350 215 L50 215 Z" fill="none" stroke="#12233D" stroke-width="3" stroke-dasharray="10 8"/>
+      <g stroke="#4C562F" stroke-width="3" stroke-linecap="round"><path d="M300 150v-40M310 152v-34M290 150v-30M90 150v-36M100 152v-28"/></g>
+      <circle cx="80" cy="60" r="20" fill="#F7E7B5"/>
+    </symbol>
+
+    <symbol id="foto-rua" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <rect y="200" width="400" height="100" fill="#8A9A5B"/>
+      <path d="M150 200 L250 200 L400 300 L0 300 Z" fill="#4A5468"/>
+      <path d="M200 206v20M200 240v26M200 280v20" stroke="#F3EBDB" stroke-width="4" stroke-dasharray="14 14"/>
+      <rect x="20" y="150" width="90" height="50" fill="#E2D5BC"/><polygon points="14,152 65,120 116,152" fill="#12233D"/>
+      <rect x="290" y="150" width="90" height="50" fill="#F1E9D8"/><polygon points="284,152 335,120 386,152" fill="#2A456E"/>
+      <circle cx="140" cy="170" r="24" fill="#5F6B3C"/><rect x="137" y="186" width="6" height="18" fill="#7A5A3A"/>
+      <circle cx="262" cy="172" r="22" fill="#5F6B3C"/><rect x="259" y="186" width="6" height="18" fill="#7A5A3A"/>
+    </symbol>
+
+    <symbol id="foto-comercial" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="#D8C8AA"/>
+      <rect y="260" width="400" height="40" fill="#4A5468"/>
+      <rect x="50" y="40" width="300" height="220" fill="#F1E9D8"/>
+      <rect x="70" y="56" width="260" height="40" fill="#12233D"/>
+      <rect x="150" y="70" width="100" height="12" fill="#EFE6D4" opacity=".7"/>
+      <g><rect x="60" y="104" width="46" height="26" fill="#12233D"/><rect x="106" y="104" width="46" height="26" fill="#FBF8F1"/><rect x="152" y="104" width="46" height="26" fill="#12233D"/><rect x="198" y="104" width="46" height="26" fill="#FBF8F1"/><rect x="244" y="104" width="46" height="26" fill="#12233D"/><rect x="290" y="104" width="50" height="26" fill="#FBF8F1"/></g>
+      <rect x="70" y="140" width="150" height="120" fill="#9DBBC9"/>
+      <path d="M80 250 L150 150 L190 150 L120 250 Z" fill="#EDF2F4" opacity=".5"/>
+      <rect x="240" y="150" width="90" height="110" fill="#5F6B3C"/>
+      <circle cx="318" cy="208" r="4" fill="#F3EBDB"/>
+      <rect x="60" y="226" width="16" height="34" fill="#8A9A5B"/>
+    </symbol>
+
+    <symbol id="foto-escritorio" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-interior)"/>
+      <rect y="220" width="400" height="80" fill="#CDBB9A"/>
+      <rect x="40" y="40" width="140" height="110" fill="url(#g-ceu-dia)" stroke="#FBF8F1" stroke-width="6"/>
+      <path d="M110 40v110" stroke="#FBF8F1" stroke-width="6"/>
+      <rect x="140" y="170" width="220" height="12" fill="#2A456E"/>
+      <path d="M150 182v60M350 182v60" stroke="#2A456E" stroke-width="8"/>
+      <rect x="220" y="120" width="70" height="46" fill="#12233D"/><rect x="226" y="126" width="58" height="34" fill="#BFD6E2"/><rect x="250" y="166" width="10" height="6" fill="#12233D"/>
+      <rect x="60" y="180" width="50" height="60" rx="8" fill="#5F6B3C"/><rect x="70" y="240" width="30" height="10" fill="#4C562F"/>
+      <rect x="310" y="130" width="30" height="40" fill="#8A9A5B"/><circle cx="325" cy="122" r="18" fill="#5F6B3C"/>
+    </symbol>
+
+    <symbol id="foto-recepcao" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-interior)"/>
+      <rect y="230" width="400" height="70" fill="#CDBB9A"/>
+      <rect x="90" y="150" width="220" height="90" rx="4" fill="#12233D"/>
+      <rect x="90" y="150" width="220" height="10" fill="#F1E9D8"/>
+      <circle cx="200" cy="80" r="26" fill="none" stroke="#5F6B3C" stroke-width="5"/><path d="M200 50v60M170 80h60" stroke="#5F6B3C" stroke-width="5"/>
+      <rect x="20" y="170" width="44" height="60" rx="6" fill="#8A9A5B"/><rect x="336" y="170" width="44" height="60" rx="6" fill="#8A9A5B"/>
+      <rect x="370" y="110" width="12" height="60" fill="#5F6B3C"/><ellipse cx="376" cy="104" rx="20" ry="16" fill="#8A9A5B"/>
+    </symbol>
+
+    <symbol id="foto-sala" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-interior)"/>
+      <rect y="210" width="400" height="90" fill="#CDBB9A"/>
+      <rect x="230" y="40" width="130" height="110" fill="url(#g-ceu-dia)" stroke="#FBF8F1" stroke-width="6"/>
+      <path d="M295 40v110M230 95h130" stroke="#FBF8F1" stroke-width="6"/>
+      <rect x="40" y="70" width="60" height="44" fill="#5F6B3C"/><rect x="48" y="78" width="44" height="28" fill="#8A9A5B"/>
+      <ellipse cx="200" cy="260" rx="150" ry="22" fill="#8A9A5B" opacity=".6"/>
+      <rect x="60" y="150" width="200" height="70" rx="14" fill="#12233D"/>
+      <rect x="70" y="140" width="80" height="30" rx="8" fill="#2A456E"/><rect x="160" y="140" width="80" height="30" rx="8" fill="#2A456E"/>
+      <rect x="300" y="160" width="40" height="60" fill="#E2D5BC"/><rect x="290" y="130" width="60" height="30" fill="#F1E9D8"/>
+      <rect x="318" y="100" width="4" height="30" fill="#12233D"/>
+    </symbol>
+
+    <symbol id="foto-sala-apto" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-interior)"/>
+      <rect y="220" width="400" height="80" fill="#D8C8AA"/>
+      <rect x="40" y="30" width="320" height="170" fill="url(#g-ceu-dia)" stroke="#FBF8F1" stroke-width="6"/>
+      <path d="M200 30v170" stroke="#FBF8F1" stroke-width="6"/>
+      <rect x="40" y="150" width="320" height="50" fill="#2A456E" opacity=".3"/>
+      <g fill="#2A456E" opacity=".5"><rect x="60" y="110" width="30" height="40"/><rect x="100" y="90" width="24" height="60"/><rect x="250" y="100" width="40" height="50"/><rect x="300" y="120" width="26" height="30"/></g>
+      <rect x="90" y="190" width="220" height="50" rx="12" fill="#E2D5BC"/><rect x="100" y="176" width="100" height="26" rx="6" fill="#CDBB9A"/><rect x="200" y="176" width="100" height="26" rx="6" fill="#CDBB9A"/>
+      <rect x="340" y="170" width="14" height="60" fill="#5F6B3C"/><ellipse cx="347" cy="160" rx="24" ry="18" fill="#8A9A5B"/>
+    </symbol>
+
+    <symbol id="foto-cozinha" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-interior)"/>
+      <rect x="0" y="40" width="400" height="60" fill="#12233D"/>
+      <path d="M100 40v60M200 40v60M300 40v60" stroke="#2A456E" stroke-width="3"/>
+      <rect x="0" y="100" width="400" height="60" fill="#E2D5BC"/>
+      <g fill="#CDBB9A" opacity=".6"><rect x="0" y="100" width="400" height="60"/></g>
+      <path d="M0 115h400M0 130h400M0 145h400" stroke="#F1E9D8" stroke-width="2"/>
+      <rect x="0" y="160" width="400" height="14" fill="#F1E9D8"/>
+      <rect x="0" y="174" width="400" height="66" fill="#2A456E"/>
+      <path d="M100 174v66M200 174v66M300 174v66" stroke="#12233D" stroke-width="3"/>
+      <rect y="240" width="400" height="60" fill="#CDBB9A"/>
+      <rect x="150" y="60" width="100" height="40" fill="#CDBB9A"/>
+      <rect x="150" y="156" width="100" height="6" fill="#12233D"/>
+      <g fill="#12233D"><circle cx="170" cy="166" r="6"/><circle cx="200" cy="166" r="6"/><circle cx="230" cy="166" r="6"/></g>
+      <ellipse cx="320" cy="160" rx="24" ry="8" fill="#5F6B3C"/><circle cx="312" cy="150" r="7" fill="#D9A24A"/><circle cx="328" cy="150" r="7" fill="#C2503A"/>
+    </symbol>
+
+    <symbol id="foto-quarto" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-interior)"/>
+      <rect y="230" width="400" height="70" fill="#CDBB9A"/>
+      <rect x="260" y="40" width="100" height="90" fill="url(#g-ceu-dia)" stroke="#FBF8F1" stroke-width="6"/>
+      <rect x="60" y="100" width="220" height="40" rx="6" fill="#12233D"/>
+      <rect x="60" y="140" width="220" height="90" rx="4" fill="#F1E9D8"/>
+      <rect x="60" y="180" width="220" height="50" fill="#5F6B3C"/>
+      <rect x="80" y="118" width="70" height="30" rx="6" fill="#FBF8F1"/><rect x="160" y="118" width="70" height="30" rx="6" fill="#FBF8F1"/>
+      <rect x="300" y="170" width="50" height="60" fill="#E2D5BC"/>
+      <rect x="320" y="140" width="10" height="30" fill="#12233D"/><path d="M305 142h40l-6-20h-28z" fill="#8A9A5B"/>
+    </symbol>
+
+    <symbol id="foto-varanda" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-tarde)"/>
+      <g fill="#2A456E" opacity=".35"><rect x="20" y="120" width="40" height="80"/><rect x="70" y="90" width="30" height="110"/><rect x="260" y="100" width="50" height="100"/><rect x="330" y="130" width="40" height="70"/></g>
+      <rect y="200" width="400" height="100" fill="#CDBB9A"/>
+      <path d="M0 150h400" stroke="#12233D" stroke-width="8"/>
+      <g stroke="#12233D" stroke-width="4"><path d="M30 154v46M70 154v46M110 154v46M150 154v46M190 154v46M230 154v46M270 154v46M310 154v46M350 154v46M390 154v46"/></g>
+      <rect x="140" y="200" width="60" height="50" rx="8" fill="#5F6B3C"/><rect x="150" y="250" width="40" height="8" fill="#4C562F"/>
+      <rect x="260" y="230" width="36" height="40" fill="#E2D5BC"/><ellipse cx="278" cy="222" rx="30" ry="18" fill="#8A9A5B"/>
+      <circle cx="90" cy="60" r="24" fill="#F6D28F"/>
+    </symbol>
+
+    <symbol id="foto-piscina" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <rect y="130" width="400" height="170" fill="#E2D5BC"/>
+      <rect x="40" y="160" width="320" height="120" rx="18" fill="url(#g-agua)"/>
+      <path d="M70 200q20-8 40 0t40 0t40 0t40 0t40 0t40 0M70 240q20-8 40 0t40 0t40 0t40 0t40 0t40 0" fill="none" stroke="#EDF2F4" stroke-width="3" opacity=".75"/>
+      <rect x="20" y="136" width="40" height="18" rx="4" fill="#5F6B3C"/><rect x="70" y="136" width="40" height="18" rx="4" fill="#5F6B3C"/>
+      <path d="M330 136l30-34 30 34z" fill="#12233D"/><path d="M360 136v24" stroke="#12233D" stroke-width="4"/>
+      <circle cx="340" cy="60" r="22" fill="#F7E7B5"/>
+    </symbol>
+
+    <symbol id="foto-quintal" viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="url(#g-ceu-dia)"/>
+      <rect y="170" width="400" height="130" fill="#8A9A5B"/>
+      <rect y="230" width="400" height="70" fill="#5F6B3C" opacity=".4"/>
+      <g fill="#E2D5BC"><rect x="0" y="130" width="400" height="8"/><rect x="20" y="110" width="12" height="70"/><rect x="50" y="110" width="12" height="70"/><rect x="80" y="110" width="12" height="70"/><rect x="110" y="110" width="12" height="70"/><rect x="290" y="110" width="12" height="70"/><rect x="320" y="110" width="12" height="70"/><rect x="350" y="110" width="12" height="70"/><rect x="380" y="110" width="12" height="70"/></g>
+      <rect x="196" y="120" width="12" height="90" fill="#7A5A3A"/>
+      <circle cx="202" cy="96" r="46" fill="#5F6B3C"/><circle cx="170" cy="112" r="30" fill="#4C562F"/><circle cx="236" cy="110" r="32" fill="#6F7B45"/>
+      <rect x="60" y="210" width="90" height="12" rx="3" fill="#12233D"/><path d="M68 222v26M142 222v26" stroke="#12233D" stroke-width="6"/>
+      <circle cx="330" cy="60" r="20" fill="#F7E7B5"/>
+      <g fill="#C2503A"><circle cx="176" cy="92" r="4"/><circle cx="222" cy="82" r="4"/><circle cx="206" cy="120" r="4"/></g>
+    </symbol>
+
+    <symbol id="icone-area" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 16l8-8M8 10V8h2M16 14v2h-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icone-quartos" viewBox="0 0 24 24"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 18h18M3 18v2M21 18v2M5 9V6a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icone-banheiros" viewBox="0 0 24 24"><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-2ZM6 12V6a2 2 0 0 1 4 0M8 19l-1 2M16 19l1 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icone-vagas" viewBox="0 0 24 24"><path d="M5 16l1.5-6a2 2 0 0 1 2-1.5h7a2 2 0 0 1 2 1.5L19 16M4 16h16v3H4zM7 19v1M17 19v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></symbol>
+    <symbol id="icone-coracao" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 7.6a4.5 4.5 0 0 1 7.5 2.9c0 5.4-7.5 10-7.5 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="icone-marco" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="icone-lista" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="icone-mapa" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="icone-filtro" viewBox="0 0 24 24"><path d="M4 5h16l-6 8v5l-4 2v-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="icone-seta" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <header class="topo">
+    <div class="caixa topo__faixa">
+      <a class="marca" href="#inicio" aria-label="Imobiliária Marco Zero, voltar ao início">
+        <svg class="marca__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-marco"/></svg>
+        <span class="marca__nome">Marco Zero</span>
+      </a>
+      <nav class="nav" id="nav-principal" aria-label="Principal">
+        <ul class="nav__lista">
+          <li><a class="nav__link" href="#imoveis">Imóveis</a></li>
+          <li><a class="nav__link" href="#anunciar">Anunciar</a></li>
+          <li><a class="nav__link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="topo__acoes">
+        <a class="favoritos-link" id="favoritos-link" href="?favoritos=1#imoveis" aria-label="Ver favoritos">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-coracao"/></svg>
+          <span class="favoritos-link__contagem" id="favoritos-contagem">0</span>
+        </a>
+        <a class="botao botao--primario botao--pequeno topo__whats" data-modelo-href="whatsapp" href="#contato">WhatsApp</a>
+        <button class="topo__menu" id="menu-botao" type="button" aria-expanded="false" aria-controls="nav-principal">
+          <span class="sr-only">Menu</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-lista"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo" data-vista-lista>
+      <div class="caixa hero__grade">
+        <div class="hero__texto">
+          <p class="rotulo">Venda e locação · <span data-modelo="creci">CRECI-UF 00000-J</span></p>
+          <h1 id="hero-titulo">Seu próximo endereço começa no marco zero.</h1>
+          <p class="hero__sub">
+            Casas, apartamentos, terrenos e salas comerciais em cinco bairros. Filtre, compare no mapa,
+            guarde os favoritos e fale direto com um corretor.
+          </p>
+
+          <form class="busca-rapida" id="busca-rapida" aria-label="Busca rápida">
+            <div class="busca-rapida__campo">
+              <label for="rapida-finalidade">Quero</label>
+              <select id="rapida-finalidade" name="finalidade">
+                <option value="">Comprar ou alugar</option>
+                <option value="venda">Comprar</option>
+                <option value="aluguel">Alugar</option>
+              </select>
+            </div>
+            <div class="busca-rapida__campo">
+              <label for="rapida-tipo">Tipo</label>
+              <select id="rapida-tipo" name="tipo" data-opcoes="tipos">
+                <option value="">Qualquer tipo</option>
+              </select>
+            </div>
+            <div class="busca-rapida__campo">
+              <label for="rapida-bairro">Bairro</label>
+              <select id="rapida-bairro" name="bairro" data-opcoes="bairros">
+                <option value="">Todos os bairros</option>
+              </select>
+            </div>
+            <button class="botao botao--primario busca-rapida__botao" type="submit">Buscar imóveis</button>
+          </form>
+        </div>
+
+        <figure class="mapa-bairros" aria-labelledby="mapa-bairros-legenda">
+          <svg class="mapa-bairros__svg" viewBox="0 0 600 420" role="group" aria-label="Mapa dos bairros atendidos; cada bairro é um link que filtra os imóveis">
+            <defs>
+              <pattern id="grade" width="30" height="30" patternUnits="userSpaceOnUse">
+                <path d="M30 0H0v30" fill="none" stroke="#12233D" stroke-opacity=".10" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="600" height="420" fill="#F3EBDB"/>
+            <rect width="600" height="420" fill="url(#grade)"/>
+            <!-- lagoa -->
+            <path class="mapa-bairros__agua" d="M372 318C410 270 540 268 600 318V420H340C330 380 348 346 372 318Z"/>
+            <!-- bairros -->
+            <a class="regiao" data-bairro="alto-da-colina" href="?bairro=alto-da-colina#imoveis" aria-label="Alto da Colina">
+              <path d="M22 22H262L236 160L22 172Z"/>
+              <text class="regiao__nome" x="128" y="92" text-anchor="middle">Alto da Colina</text>
+              <text class="regiao__contagem" x="128" y="112" text-anchor="middle" data-contagem="alto-da-colina">— imóveis</text>
+            </a>
+            <a class="regiao" data-bairro="jardim-aurora" href="?bairro=jardim-aurora#imoveis" aria-label="Jardim Aurora">
+              <path d="M286 22H578V158L336 168L306 130Z"/>
+              <text class="regiao__nome" x="440" y="92" text-anchor="middle">Jardim Aurora</text>
+              <text class="regiao__contagem" x="440" y="112" text-anchor="middle" data-contagem="jardim-aurora">— imóveis</text>
+            </a>
+            <a class="regiao" data-bairro="vila-mirante" href="?bairro=vila-mirante#imoveis" aria-label="Vila Mirante">
+              <path d="M22 196L214 184L240 300L190 398H22Z"/>
+              <text class="regiao__nome" x="112" y="296" text-anchor="middle">Vila Mirante</text>
+              <text class="regiao__contagem" x="112" y="316" text-anchor="middle" data-contagem="vila-mirante">— imóveis</text>
+            </a>
+            <a class="regiao" data-bairro="lagoa-verde" href="?bairro=lagoa-verde#imoveis" aria-label="Lagoa Verde">
+              <path d="M386 190L578 182V300C540 262 420 266 372 310L358 292Z"/>
+              <text class="regiao__nome" x="482" y="232" text-anchor="middle">Lagoa Verde</text>
+              <text class="regiao__contagem" x="482" y="252" text-anchor="middle" data-contagem="lagoa-verde">— imóveis</text>
+            </a>
+            <a class="regiao regiao--centro" data-bairro="centro" href="?bairro=centro#imoveis" aria-label="Centro">
+              <path d="M236 160L306 130L336 168L362 196L372 310L254 324L228 300L212 196Z"/>
+              <text class="regiao__nome" x="292" y="282" text-anchor="middle">Centro</text>
+              <text class="regiao__contagem" x="292" y="302" text-anchor="middle" data-contagem="centro">— imóveis</text>
+            </a>
+            <!-- vias: todas partem do marco zero -->
+            <g class="mapa-bairros__vias">
+              <path d="M22 184L236 168L336 176L578 172"/>
+              <path d="M262 22L300 130L293 196"/>
+              <path d="M292 214L240 236L190 398"/>
+              <path d="M292 214L350 226L372 310"/>
+            </g>
+            <!-- marco zero -->
+            <g class="mapa-bairros__marco" transform="translate(292 214)">
+              <circle r="14"/>
+              <path d="M0-24V-8M0 8v16M-24 0h16M8 0h16"/>
+              <circle class="mapa-bairros__marco-centro" r="4"/>
+            </g>
+            <!-- rosa dos ventos e escala -->
+            <g class="mapa-bairros__norte" transform="translate(556 60)">
+              <path d="M0-22L7 6 0 0-7 6Z"/>
+              <text y="28" text-anchor="middle">N</text>
+            </g>
+            <g class="mapa-bairros__escala" transform="translate(30 392)">
+              <path d="M0-6v6h80v-6M40-4v4"/>
+              <text x="40" y="18" text-anchor="middle">1 km</text>
+            </g>
+          </svg>
+          <figcaption class="mapa-bairros__legenda" id="mapa-bairros-legenda">Toque num bairro para ver só os imóveis dele. Mapa esquemático, sem escala real.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Catálogo ===== -->
+    <section class="catalogo" id="imoveis" aria-labelledby="catalogo-titulo" data-vista-lista>
+      <div class="caixa">
+        <div class="catalogo__cabeca">
+          <div>
+            <p class="rotulo">Imóveis</p>
+            <h2 id="catalogo-titulo" tabindex="-1">Imóveis disponíveis</h2>
+          </div>
+          <p class="catalogo__contagem" id="resultado-contagem" aria-live="polite" aria-atomic="true">Carregando os imóveis…</p>
+        </div>
+
+        <div class="catalogo__grade">
+          <aside class="filtros" aria-labelledby="filtros-titulo">
+            <button class="filtros__botao" id="filtros-botao" type="button" aria-expanded="false" aria-controls="filtros-painel">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-filtro"/></svg>
+              Filtros <span class="filtros__ativos" id="filtros-ativos" hidden>0</span>
+            </button>
+            <form class="filtros__painel" id="filtros-painel" novalidate>
+              <h3 class="filtros__titulo" id="filtros-titulo">Filtrar</h3>
+
+              <fieldset class="campo campo--radios">
+                <legend>Finalidade</legend>
+                <div class="segmento" role="group" aria-label="Finalidade">
+                  <label><input type="radio" name="finalidade" value="" checked><span>Todas</span></label>
+                  <label><input type="radio" name="finalidade" value="venda"><span>Comprar</span></label>
+                  <label><input type="radio" name="finalidade" value="aluguel"><span>Alugar</span></label>
+                </div>
+              </fieldset>
+
+              <div class="campo">
+                <label for="filtro-tipo">Tipo</label>
+                <select id="filtro-tipo" name="tipo" data-opcoes="tipos"><option value="">Qualquer tipo</option></select>
+              </div>
+              <div class="campo">
+                <label for="filtro-bairro">Bairro</label>
+                <select id="filtro-bairro" name="bairro" data-opcoes="bairros"><option value="">Todos os bairros</option></select>
+              </div>
+              <div class="campo campo--duplo">
+                <div>
+                  <label for="filtro-min">Preço mínimo</label>
+                  <input type="number" id="filtro-min" name="min" inputmode="numeric" min="0" step="1000" placeholder="R$">
+                </div>
+                <div>
+                  <label for="filtro-max">Preço máximo</label>
+                  <input type="number" id="filtro-max" name="max" inputmode="numeric" min="0" step="1000" placeholder="R$">
+                </div>
+              </div>
+              <div class="campo">
+                <label for="filtro-quartos">Quartos</label>
+                <select id="filtro-quartos" name="quartos">
+                  <option value="">Qualquer</option>
+                  <option value="1">1 ou mais</option>
+                  <option value="2">2 ou mais</option>
+                  <option value="3">3 ou mais</option>
+                  <option value="4">4 ou mais</option>
+                </select>
+              </div>
+              <div class="campo campo--caixa">
+                <label class="caixa-marcar">
+                  <input type="checkbox" name="favoritos" value="1">
+                  <span>Só os meus favoritos</span>
+                </label>
+              </div>
+              <button class="botao botao--fantasma botao--largo" id="limpar-filtros" type="button">Limpar filtros</button>
+            </form>
+          </aside>
+
+          <div class="resultados">
+            <div class="resultados__barra">
+              <div class="campo campo--linha">
+                <label for="ordem">Ordenar por</label>
+                <select id="ordem" name="ordem">
+                  <option value="recentes">Mais recentes</option>
+                  <option value="preco-asc">Menor preço</option>
+                  <option value="preco-desc">Maior preço</option>
+                  <option value="area-desc">Maior área</option>
+                </select>
+              </div>
+              <div class="vista" role="group" aria-label="Modo de exibição">
+                <button class="vista__botao" id="vista-lista" type="button" aria-pressed="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-lista"/></svg> Lista
+                </button>
+                <button class="vista__botao" id="vista-mapa" type="button" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-mapa"/></svg> Mapa
+                </button>
+              </div>
+            </div>
+
+            <div class="cards" id="resultados" aria-busy="true"></div>
+
+            <div class="vazio" id="resultados-vazio" hidden>
+              <p><strong>Nenhum imóvel com esses filtros.</strong></p>
+              <p>Tente ampliar a faixa de preço, trocar o bairro ou limpar os filtros.</p>
+              <button class="botao botao--fantasma" type="button" data-limpar>Limpar filtros</button>
+            </div>
+            <div class="vazio" id="catalogo-erro" hidden>
+              <p>Os imóveis não carregaram. Confira a conexão e tente de novo.</p>
+              <button class="botao botao--fantasma" id="catalogo-recarregar" type="button">Tentar de novo</button>
+            </div>
+
+            <nav class="paginacao" id="paginacao" aria-label="Páginas de resultados" hidden></nav>
+
+            <div class="mapa-caixa mapa-caixa--lista" id="mapa-lista-caixa" hidden>
+              <div class="mapa-caixa__mapa" id="mapa-lista" aria-label="Mapa com os imóveis filtrados"></div>
+              <p class="mapa-caixa__aviso" id="mapa-lista-aviso" hidden>O mapa não carregou (sem conexão com o serviço de mapas). A lista continua disponível.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Detalhe do imóvel (rota #/imovel/<id>) ===== -->
+    <section class="detalhe" id="detalhe" aria-labelledby="detalhe-titulo" hidden>
+      <div class="caixa">
+        <p class="detalhe__voltar">
+          <button class="link-botao" id="detalhe-voltar" type="button">← Voltar aos resultados</button>
+        </p>
+        <div class="detalhe__grade">
+          <div class="detalhe__principal">
+            <div class="galeria" id="galeria" role="group" aria-roledescription="galeria" aria-label="Fotos do imóvel">
+              <div class="galeria__quadro">
+                <svg class="foto galeria__foto" id="galeria-foto" viewBox="0 0 400 300" role="img" aria-label=""><use id="galeria-use" href="#foto-casa-dia"/></svg>
+                <button class="galeria__seta galeria__seta--anterior" id="galeria-anterior" type="button" aria-label="Foto anterior">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-seta"/></svg>
+                </button>
+                <button class="galeria__seta galeria__seta--proxima" id="galeria-proxima" type="button" aria-label="Próxima foto">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-seta"/></svg>
+                </button>
+                <p class="galeria__status" id="galeria-status" aria-live="polite"></p>
+              </div>
+              <div class="galeria__miniaturas" id="galeria-miniaturas"></div>
+            </div>
+
+            <div class="detalhe__texto">
+              <p class="rotulo"><span id="detalhe-codigo">MZ-0000</span> · <span id="detalhe-finalidade">Venda</span></p>
+              <h2 class="detalhe__titulo" id="detalhe-titulo" tabindex="-1">Imóvel</h2>
+              <p class="detalhe__local" id="detalhe-local">Bairro</p>
+              <ul class="atributos atributos--grande" id="detalhe-atributos"></ul>
+              <h3>Sobre o imóvel</h3>
+              <p class="detalhe__descricao" id="detalhe-descricao"></p>
+              <h3>Diferenciais</h3>
+              <ul class="diferenciais" id="detalhe-diferenciais"></ul>
+              <h3>Ficha técnica</h3>
+              <dl class="ficha" id="detalhe-ficha"></dl>
+              <h3>Localização</h3>
+              <div class="mapa-caixa">
+                <div class="mapa-caixa__mapa" id="mapa-detalhe" aria-label="Mapa com a localização aproximada do imóvel"></div>
+                <p class="mapa-caixa__aviso" id="mapa-detalhe-aviso" hidden>O mapa não carregou (sem conexão com o serviço de mapas).</p>
+              </div>
+              <p class="nota">Localização aproximada, para preservar a privacidade do proprietário. O endereço exato é informado na visita.</p>
+            </div>
+          </div>
+
+          <aside class="detalhe__lateral">
+            <div class="painel">
+              <p class="painel__preco" id="detalhe-preco">R$ 0</p>
+              <p class="painel__condominio" id="detalhe-condominio" hidden></p>
+              <button class="botao botao--fantasma botao--largo favorito-botao" id="detalhe-favorito" type="button" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-coracao"/></svg>
+                <span>Salvar nos favoritos</span>
+              </button>
+              <h3 class="painel__titulo">Tenho interesse</h3>
+              <form class="lead" id="form-interesse" novalidate data-assunto="Interesse no imóvel">
+                <p class="lead__aviso" data-aviso-sem-servidor hidden>Demonstração sem servidor: a mensagem abre no WhatsApp.</p>
+                <div class="campo">
+                  <label for="interesse-nome">Nome</label>
+                  <input type="text" id="interesse-nome" name="nome" autocomplete="name" required>
+                  <p class="campo__erro" id="interesse-nome-erro"></p>
+                </div>
+                <div class="campo">
+                  <label for="interesse-telefone">WhatsApp ou telefone</label>
+                  <input type="tel" id="interesse-telefone" name="telefone" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required>
+                  <p class="campo__erro" id="interesse-telefone-erro"></p>
+                </div>
+                <div class="campo">
+                  <label for="interesse-email">E-mail <span class="campo__opcional">(opcional)</span></label>
+                  <input type="email" id="interesse-email" name="email" autocomplete="email" inputmode="email">
+                  <p class="campo__erro" id="interesse-email-erro"></p>
+                </div>
+                <div class="campo">
+                  <label for="interesse-mensagem">Mensagem</label>
+                  <textarea id="interesse-mensagem" name="mensagem" rows="4" maxlength="600"></textarea>
+                  <p class="campo__erro" id="interesse-mensagem-erro"></p>
+                </div>
+                <div class="campo campo--caixa">
+                  <label class="caixa-marcar">
+                    <input type="checkbox" id="interesse-consentimento" name="consentimento">
+                    <span>Autorizo o uso dos meus dados só para responder a este contato.</span>
+                  </label>
+                  <p class="campo__erro" id="interesse-consentimento-erro"></p>
+                </div>
+                <div class="hp" aria-hidden="true">
+                  <label for="interesse-site">Deixe este campo vazio</label>
+                  <input type="text" id="interesse-site" name="site" tabindex="-1" autocomplete="off">
+                </div>
+                <p class="campo__erro" data-erro-geral></p>
+                <button class="botao botao--primario botao--largo" type="submit">Enviar interesse</button>
+                <div class="lead__sucesso" data-sucesso hidden tabindex="-1">
+                  <strong>Mensagem enviada.</strong>
+                  <p data-sucesso-texto></p>
+                </div>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Anuncie seu imóvel ===== -->
+    <section class="anunciar" id="anunciar" aria-labelledby="anunciar-titulo" data-vista-lista>
+      <div class="caixa anunciar__grade">
+        <div class="anunciar__texto">
+          <p class="rotulo rotulo--claro">Para proprietários</p>
+          <h2 id="anunciar-titulo">Quer vender ou alugar o seu imóvel?</h2>
+          <p>
+            Avaliação sem custo, fotos profissionais e anúncio nos principais portais. Conte o básico aqui e um
+            corretor retorna no próximo dia útil para combinar a visita.
+          </p>
+          <ul class="anunciar__passos">
+            <li><strong>Avaliação</strong><span>Visita técnica e preço sugerido com base em imóveis parecidos.</span></li>
+            <li><strong>Divulgação</strong><span>Fotos, planta e anúncio neste site e nos portais parceiros.</span></li>
+            <li><strong>Negociação</strong><span>Visitas acompanhadas, proposta e contrato com assessoria jurídica.</span></li>
+          </ul>
+        </div>
+        <form class="lead lead--cartao" id="form-anunciar" novalidate data-assunto="Quero anunciar meu imóvel">
+          <h3 class="lead__titulo">Anuncie seu imóvel</h3>
+          <p class="lead__aviso" data-aviso-sem-servidor hidden>Demonstração sem servidor: a mensagem abre no WhatsApp.</p>
+          <div class="campo">
+            <label for="anunciar-nome">Nome</label>
+            <input type="text" id="anunciar-nome" name="nome" autocomplete="name" required>
+            <p class="campo__erro" id="anunciar-nome-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="anunciar-telefone">WhatsApp ou telefone</label>
+            <input type="tel" id="anunciar-telefone" name="telefone" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required>
+            <p class="campo__erro" id="anunciar-telefone-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="anunciar-email">E-mail <span class="campo__opcional">(opcional)</span></label>
+            <input type="email" id="anunciar-email" name="email" autocomplete="email" inputmode="email">
+            <p class="campo__erro" id="anunciar-email-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="anunciar-mensagem">Sobre o imóvel</label>
+            <textarea id="anunciar-mensagem" name="mensagem" rows="3" maxlength="600" placeholder="Tipo, bairro, quartos e se é para venda ou aluguel"></textarea>
+            <p class="campo__erro" id="anunciar-mensagem-erro"></p>
+          </div>
+          <div class="campo campo--caixa">
+            <label class="caixa-marcar">
+              <input type="checkbox" id="anunciar-consentimento" name="consentimento">
+              <span>Autorizo o uso dos meus dados só para responder a este contato.</span>
+            </label>
+            <p class="campo__erro" id="anunciar-consentimento-erro"></p>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="anunciar-site">Deixe este campo vazio</label>
+            <input type="text" id="anunciar-site" name="site" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="campo__erro" data-erro-geral></p>
+          <button class="botao botao--primario botao--largo" type="submit">Pedir avaliação</button>
+          <div class="lead__sucesso" data-sucesso hidden tabindex="-1">
+            <strong>Mensagem enviada.</strong>
+            <p data-sucesso-texto></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape" id="contato">
+    <div class="caixa rodape__grade">
+      <div>
+        <p class="rodape__marca">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#icone-marco"/></svg>
+          <span data-modelo="nome">Imobiliária Marco Zero</span>
+        </p>
+        <p class="rodape__texto"><span data-modelo="creci">CRECI-UF 00000-J</span></p>
+        <p class="rodape__texto"><span data-modelo="slogan">O ponto de partida do seu próximo endereço</span></p>
+      </div>
+      <div>
+        <p class="rodape__titulo">Contato</p>
+        <address class="rodape__texto">
+          <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span><br>
+          <a data-modelo-href="telefone" href="#contato"><span data-modelo="telefone">(00) 00000-0000</span></a><br>
+          <a data-modelo-href="email" href="#contato"><span data-modelo="email">contato@exemplo.com.br</span></a><br>
+          <a data-modelo-href="whatsapp" href="#contato">WhatsApp</a>
+        </address>
+      </div>
+      <div>
+        <p class="rodape__titulo">Atendimento</p>
+        <p class="rodape__texto">
+          Segunda a sexta: <span data-modelo="horarios.seg_sex">08:30–18:00</span><br>
+          Sábado: <span data-modelo="horarios.sab">09:00–13:00</span><br>
+          Domingo: <span data-modelo="horarios.dom">fechado</span>
+        </p>
+      </div>
+    </div>
+    <div class="caixa rodape__nota">
+      <p>Site de demonstração com dados fictícios: imóveis, preços, bairros, nome e CRECI são exemplos. Mapa © colaboradores do <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cantina Nonna Rosa · Massas e pizzas com entrega e retirada</title>
+  <meta name="description" content="Cantina italiana de bairro: massa fresca, pizzas de forno a lenha e doces de família. Cardápio online, pedido pelo WhatsApp, entrega ou retirada. Site de demonstração com dados fictícios.">
+  <link rel="canonical" href="https://www.exemplo.com.br/">
+  <meta property="og:title" content="Cantina Nonna Rosa · Massas e pizzas com entrega e retirada">
+  <meta property="og:description" content="Massa fresca, pizzas de forno a lenha e doces de família. Peça pelo WhatsApp, receba em casa ou retire na cantina.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.exemplo.com.br/">
+  <meta name="theme-color" content="#1E1B16">
+  <meta name="color-scheme" content="dark">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/img/icone.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap">
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Cantina Nonna Rosa",
+    "description": "Cantina italiana de bairro com massa fresca, pizzas de forno a lenha, entrega e retirada.",
+    "url": "https://www.exemplo.com.br/",
+    "telephone": "+55 00 00000-0000",
+    "email": "contato@exemplo.com.br",
+    "servesCuisine": ["Italiana", "Pizza", "Massas"],
+    "priceRange": "$$",
+    "acceptsReservations": "False",
+    "hasMenu": "https://www.exemplo.com.br/#cardapio",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Cidade",
+      "addressRegion": "UF",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -1.455, "longitude": -48.49 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:30", "closes": "15:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "18:00", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "18:00", "closes": "23:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:30", "closes": "23:30" }
+    ]
+  }
+  </script>
+  <script src="config.js" defer></script>
+  <script src="assets/js/modelo.js" defer></script>
+  <script src="assets/js/carrinho.js" defer></script>
+  <script src="assets/js/cardapio.js" defer></script>
+  <script src="assets/js/pwa.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="caixa topo__faixa">
+      <a class="marca" href="#inicio" aria-label="Cantina Nonna Rosa, voltar ao início">
+        <svg class="marca__icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <circle cx="32" cy="32" r="32" fill="#15130F"/>
+          <path d="M32 32a3 3 0 0 1 3 3a6 6 0 0 1-6 6a9 9 0 0 1-9-9a12 12 0 0 1 12-12a15 15 0 0 1 15 15a18 18 0 0 1-18 18" fill="none" stroke="#E9A23B" stroke-width="3.2" stroke-linecap="round"/>
+          <path d="M19 49c1-7 6-10 12-10c-1 7-6 10-12 10z" fill="#7FA35A"/>
+          <path d="M45 49c-1-7-6-10-12-10c1 7 6 10 12 10z" fill="#5F8A3E"/>
+        </svg>
+        <span class="marca__nome">Nonna <em>Rosa</em></span>
+      </a>
+
+      <p class="status" id="status">
+        <span class="status__ponto" aria-hidden="true"></span>
+        <span class="status__texto">Conferindo o horário…</span>
+        <span class="status__detalhe"></span>
+      </p>
+
+      <nav class="nav" id="nav-principal" aria-label="Principal">
+        <ul class="nav__lista">
+          <li><a class="nav__link" href="#cardapio">Cardápio</a></li>
+          <li><a class="nav__link" href="#sobre">A cantina</a></li>
+          <li><a class="nav__link" href="#entrega">Entrega e horários</a></li>
+          <li><a class="nav__link" href="#onde">Onde estamos</a></li>
+        </ul>
+      </nav>
+
+      <div class="topo__acoes">
+        <button class="botao botao--fantasma botao--pequeno topo__instalar" id="instalar" type="button" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Instalar app
+        </button>
+        <button class="carrinho-botao" id="abrir-carrinho" type="button" aria-haspopup="dialog" aria-controls="carrinho">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8h12l1 12H5L6 8Z M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span class="carrinho-botao__texto">Pedido</span>
+          <span class="carrinho-botao__badge" id="carrinho-badge" hidden>0</span>
+          <span class="sr-only" id="carrinho-live" aria-live="polite"></span>
+        </button>
+        <button class="topo__menu" id="menu-botao" type="button" aria-expanded="false" aria-controls="nav-principal">
+          <span class="sr-only">Menu</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- Hero -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="caixa hero__grade">
+        <div class="hero__texto">
+          <p class="rotulo">Cantina italiana · Delivery e retirada</p>
+          <h1 id="hero-titulo">A massa é fresca.<br>O molho é<br><em>de família.</em></h1>
+          <p class="hero__sub">
+            Lasanha da receita de 1964, pizzas de forno a lenha e doces da nonna. Você monta o pedido aqui,
+            confirma pelo WhatsApp e recebe em <span data-modelo="entrega_tempo">35–50 min</span>
+            num raio de <span data-modelo="entrega.raioKm">6</span> km — ou passa aqui para retirar.
+          </p>
+          <div class="hero__acoes">
+            <a class="botao botao--primario" href="#cardapio">Ver o cardápio</a>
+            <a class="botao botao--fantasma" data-modelo-href="whatsapp" href="#onde">Falar no WhatsApp</a>
+          </div>
+          <p class="hero__nota">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Dá para instalar como app no celular: o cardápio abre até sem internet.
+          </p>
+        </div>
+
+        <aside class="lousa" aria-labelledby="lousa-titulo">
+          <p class="lousa__rotulo" id="lousa-titulo">Destaques de hoje</p>
+          <ol class="lousa__lista" id="lousa-lista">
+            <li class="lousa__item lousa__item--vazio">Carregando o cardápio…</li>
+          </ol>
+          <p class="lousa__rodape">
+            Pronto em <span data-modelo="entrega_tempo">35–50 min</span> · entrega até
+            <span data-modelo="entrega.raioKm">6</span> km · retirada em <span data-modelo="retirada_tempo">20–30 min</span>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section class="cardapio" id="cardapio" aria-labelledby="cardapio-titulo">
+      <div class="caixa">
+        <div class="secao__cabeca">
+          <p class="rotulo">Cardápio</p>
+          <h2 id="cardapio-titulo">O que sai da cozinha hoje</h2>
+          <p class="secao__sub">Tudo feito na casa. Toque em <strong>Adicionar</strong>, revise o pedido e feche pelo WhatsApp.</p>
+        </div>
+      </div>
+
+      <nav class="categorias" aria-label="Categorias do cardápio">
+        <div class="caixa">
+          <ul class="categorias__lista" id="categorias-lista"></ul>
+        </div>
+      </nav>
+
+      <div class="caixa">
+        <div class="filtros">
+          <label class="busca">
+            <span class="sr-only">Buscar no cardápio</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="search" id="busca" placeholder="Buscar prato ou ingrediente" autocomplete="off" enterkeyhint="search">
+          </label>
+          <div class="etiquetas" id="etiquetas" role="group" aria-label="Filtrar por restrição"></div>
+          <p class="sr-only" id="cardapio-contagem" aria-live="polite"></p>
+        </div>
+
+        <div class="cardapio__lista" id="cardapio-lista" aria-busy="true"></div>
+
+        <p class="vazio" id="cardapio-vazio" hidden>
+          Nenhum prato combina com essa busca. Tente outra palavra ou limpe os filtros.
+        </p>
+        <div class="vazio" id="cardapio-erro" hidden>
+          <p>O cardápio não carregou. Confira a conexão e tente de novo.</p>
+          <button class="botao botao--fantasma botao--pequeno" id="cardapio-recarregar" type="button">Tentar de novo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="caixa sobre__grade">
+        <blockquote class="citacao">
+          <p>A receita da lasanha é de 1964. Ninguém mexe nela, nem eu.</p>
+          <footer>— Rosa, a nonna que dá nome à casa <span class="citacao__nota">(personagem fictícia)</span></footer>
+        </blockquote>
+        <div class="sobre__texto">
+          <p class="rotulo">A cantina</p>
+          <h2 id="sobre-titulo">Cozinha de família, sem pressa</h2>
+          <p>
+            Abrimos a massa de manhã, deixamos o ragù no fogo por seis horas e acendemos o forno a lenha
+            duas horas antes da primeira pizza. É lento de propósito. O que muda com o delivery é só o
+            caminho até a sua mesa.
+          </p>
+          <ul class="fatos">
+            <li class="fato"><strong>Massa aberta na casa</strong><span>Sêmola, ovos e descanso de 24 horas.</span></li>
+            <li class="fato"><strong>Molho em fogo baixo</strong><span>Tomate italiano, sem açúcar, sem atalho.</span></li>
+            <li class="fato"><strong>Forno a lenha</strong><span>Pizza de massa longa, borda fina e queimadinha.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entrega e horários -->
+    <section class="entrega" id="entrega" aria-labelledby="entrega-titulo">
+      <div class="caixa entrega__grade">
+        <div>
+          <p class="rotulo">Entrega e retirada</p>
+          <h2 id="entrega-titulo">Como o pedido chega</h2>
+          <p class="secao__sub">Entregamos com motoboy próprio. Fora do raio, combine a retirada: o pedido fica pronto e quente no balcão.</p>
+          <ul class="cartoes">
+            <li class="cartao">
+              <span class="cartao__valor"><span data-modelo="entrega.raioKm">6</span> km</span>
+              <span class="cartao__rotulo">Raio de entrega</span>
+            </li>
+            <li class="cartao">
+              <span class="cartao__valor" data-modelo="entrega_taxa">R$ 7,90</span>
+              <span class="cartao__rotulo">Taxa de entrega · pedido mínimo <span data-modelo="pedido_minimo">R$ 30,00</span></span>
+            </li>
+            <li class="cartao">
+              <span class="cartao__valor" data-modelo="entrega_tempo">35–50 min</span>
+              <span class="cartao__rotulo">Tempo médio · retirada em <span data-modelo="retirada_tempo">20–30 min</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="horarios">
+          <h3 class="horarios__titulo">Horários</h3>
+          <table class="horarios__tabela">
+            <caption class="sr-only">Horário de funcionamento por dia da semana</caption>
+            <thead class="sr-only"><tr><th scope="col">Dia</th><th scope="col">Horário</th></tr></thead>
+            <tbody id="horarios-tabela"></tbody>
+          </table>
+          <p class="horarios__nota">Pedidos pelo WhatsApp só dentro do horário de funcionamento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="onde" id="onde" aria-labelledby="onde-titulo">
+      <div class="caixa onde__grade">
+        <div class="onde__texto">
+          <p class="rotulo">Onde estamos</p>
+          <h2 id="onde-titulo">Passe para retirar ou venha comer aqui</h2>
+          <address class="onde__endereco">
+            <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span><br>
+            <a data-modelo-href="telefone" href="#onde"><span data-modelo="telefone">(00) 00000-0000</span></a><br>
+            <a data-modelo-href="email" href="#onde"><span data-modelo="email">contato@exemplo.com.br</span></a>
+          </address>
+          <a class="botao botao--primario" data-modelo-href="whatsapp" href="#onde">Pedir pelo WhatsApp</a>
+        </div>
+        <figure class="mapa">
+          <iframe id="mapa" class="mapa__iframe" title="Mapa com a localização da cantina (OpenStreetMap)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <figcaption class="mapa__credito">
+            Mapa: © colaboradores do <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · ponto de exemplo
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="caixa rodape__grade">
+      <div>
+        <p class="rodape__marca">Nonna <em>Rosa</em></p>
+        <p class="rodape__texto"><span data-modelo="slogan">Massa fresca, molho de família</span></p>
+      </div>
+      <div>
+        <p class="rodape__titulo">Contato</p>
+        <p class="rodape__texto">
+          <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span><br>
+          <a data-modelo-href="telefone" href="#onde"><span data-modelo="telefone">(00) 00000-0000</span></a><br>
+          <a data-modelo-href="whatsapp" href="#onde">WhatsApp</a>
+        </p>
+      </div>
+      <div>
+        <p class="rodape__titulo">Atalhos</p>
+        <ul class="rodape__links">
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#entrega">Entrega e horários</a></li>
+          <li><a href="#onde">Onde estamos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="caixa rodape__nota">
+      <p>Site de demonstração com dados fictícios. Nome, endereço, telefone e cardápio são exemplos.</p>
+    </div>
+  </footer>
+
+  <!-- Barra fixa no celular: resumo do pedido -->
+  <button class="barra-pedido" id="barra-pedido" type="button" hidden aria-haspopup="dialog" aria-controls="carrinho">
+    <span class="barra-pedido__qtd" id="barra-qtd">0 itens</span>
+    <span class="barra-pedido__acao">Ver pedido</span>
+    <span class="barra-pedido__total" id="barra-total">R$ 0,00</span>
+  </button>
+
+  <!-- Carrinho e checkout -->
+  <dialog class="carrinho" id="carrinho" aria-labelledby="carrinho-titulo">
+    <div class="carrinho__caixa">
+      <header class="carrinho__cabeca">
+        <h2 class="carrinho__titulo" id="carrinho-titulo">Seu pedido</h2>
+        <button class="carrinho__fechar" id="carrinho-fechar" type="button" aria-label="Fechar o pedido">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <!-- Etapa 1: itens -->
+      <div class="carrinho__etapa" data-etapa="itens">
+        <div class="carrinho__corpo">
+          <p class="carrinho__vazio" id="carrinho-vazio">Seu pedido está vazio. Volte ao cardápio e escolha algo.</p>
+          <ul class="pedido" id="carrinho-itens"></ul>
+
+          <fieldset class="modo" id="modo">
+            <legend class="modo__legenda">Como você quer receber?</legend>
+            <div class="opcoes">
+              <label class="opcao">
+                <input type="radio" name="modo" value="entrega" checked>
+                <span class="opcao__titulo">Entrega</span>
+                <span class="opcao__detalhe">Taxa <span data-modelo="entrega_taxa">R$ 7,90</span> · <span data-modelo="entrega_tempo">35–50 min</span></span>
+              </label>
+              <label class="opcao">
+                <input type="radio" name="modo" value="retirada">
+                <span class="opcao__titulo">Retirada</span>
+                <span class="opcao__detalhe">Sem taxa · <span data-modelo="retirada_tempo">20–30 min</span></span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <footer class="carrinho__rodape">
+          <dl class="resumo">
+            <div class="resumo__linha"><dt>Subtotal</dt><dd id="resumo-subtotal">R$ 0,00</dd></div>
+            <div class="resumo__linha"><dt id="resumo-taxa-rotulo">Entrega</dt><dd id="resumo-taxa">R$ 0,00</dd></div>
+            <div class="resumo__linha resumo__linha--total"><dt>Total</dt><dd id="resumo-total">R$ 0,00</dd></div>
+          </dl>
+          <p class="carrinho__aviso" id="aviso-minimo" hidden></p>
+          <button class="botao botao--primario botao--largo" id="continuar" type="button" disabled>Continuar</button>
+        </footer>
+      </div>
+
+      <!-- Etapa 2: checkout -->
+      <form class="carrinho__etapa" data-etapa="checkout" id="checkout" novalidate hidden>
+        <div class="carrinho__corpo">
+          <p class="carrinho__passo">
+            <button class="link-botao" id="voltar-itens" type="button">← Voltar aos itens</button>
+          </p>
+          <p class="carrinho__aviso carrinho__aviso--suave" id="aviso-sem-servidor" hidden>
+            Demonstração sem servidor: o pedido abre como mensagem no WhatsApp.
+          </p>
+
+          <div class="campo">
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required>
+            <p class="campo__erro" id="erro-nome"></p>
+          </div>
+          <div class="campo">
+            <label for="telefone">WhatsApp ou telefone</label>
+            <input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000" required>
+            <p class="campo__erro" id="erro-telefone"></p>
+          </div>
+
+          <fieldset class="campo" id="grupo-endereco">
+            <legend>Endereço de entrega</legend>
+            <div class="campo">
+              <label for="endereco">Rua e número</label>
+              <input type="text" id="endereco" name="endereco" autocomplete="street-address">
+              <p class="campo__erro" id="erro-endereco"></p>
+            </div>
+            <div class="campo">
+              <label for="bairro">Bairro</label>
+              <input type="text" id="bairro" name="bairro" autocomplete="address-level3">
+              <p class="campo__erro" id="erro-bairro"></p>
+            </div>
+            <div class="campo">
+              <label for="referencia">Complemento ou referência <span class="campo__opcional">(opcional)</span></label>
+              <input type="text" id="referencia" name="referencia">
+            </div>
+          </fieldset>
+
+          <fieldset class="campo">
+            <legend>Pagamento</legend>
+            <div class="opcoes opcoes--tres">
+              <label class="opcao"><input type="radio" name="pagamento" value="pix" checked><span class="opcao__titulo">Pix</span></label>
+              <label class="opcao"><input type="radio" name="pagamento" value="cartao"><span class="opcao__titulo">Cartão</span></label>
+              <label class="opcao"><input type="radio" name="pagamento" value="dinheiro"><span class="opcao__titulo">Dinheiro</span></label>
+            </div>
+            <div class="campo" id="grupo-troco" hidden>
+              <label for="troco">Troco para quanto? <span class="campo__opcional">(deixe em branco se não precisa)</span></label>
+              <input type="text" id="troco" name="troco" inputmode="decimal" placeholder="Ex.: 100">
+              <p class="campo__erro" id="erro-troco"></p>
+            </div>
+          </fieldset>
+
+          <div class="campo">
+            <label for="observacao">Observação geral <span class="campo__opcional">(opcional)</span></label>
+            <textarea id="observacao" name="observacao" rows="2" maxlength="300" placeholder="Ex.: interfone não funciona, ligar ao chegar"></textarea>
+          </div>
+
+          <div class="campo campo--caixa">
+            <label class="caixa-marcar">
+              <input type="checkbox" id="consentimento" name="consentimento">
+              <span>Autorizo o uso do meu nome, telefone e endereço só para preparar e entregar este pedido.</span>
+            </label>
+            <p class="campo__erro" id="erro-consentimento"></p>
+          </div>
+
+          <!-- honeypot: humano não vê nem preenche -->
+          <div class="hp" aria-hidden="true">
+            <label for="site">Deixe este campo vazio</label>
+            <input type="text" id="site" name="site" tabindex="-1" autocomplete="off">
+          </div>
+        </div>
+        <footer class="carrinho__rodape">
+          <dl class="resumo">
+            <div class="resumo__linha resumo__linha--total"><dt>Total</dt><dd id="checkout-total">R$ 0,00</dd></div>
+          </dl>
+          <p class="campo__erro" id="erro-geral"></p>
+          <button class="botao botao--primario botao--largo" id="enviar" type="submit">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 9.5c.3 2.6 2 4.5 4.8 5l1.2-1.3-1.8-.8-.8.8c-.9-.4-1.5-1-1.9-1.9l.8-.8-.8-1.8L9 9.5Z" fill="currentColor"/></svg>
+            Enviar pedido pelo WhatsApp
+          </button>
+        </footer>
+      </form>
+
+      <!-- Etapa 3: sucesso -->
+      <div class="carrinho__etapa carrinho__sucesso" data-etapa="sucesso" hidden>
+        <div class="carrinho__corpo">
+          <svg class="carrinho__sucesso-icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="m20 33 8 8 16-18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 class="carrinho__sucesso-titulo" id="sucesso-titulo" tabindex="-1">Pedido montado!</h3>
+          <p id="sucesso-texto">O WhatsApp abriu com a mensagem do pedido. É só enviar para a cantina confirmar.</p>
+          <p class="carrinho__protocolo" id="sucesso-protocolo" hidden></p>
+          <p><a class="botao botao--fantasma" id="sucesso-link" href="#onde" target="_blank" rel="noopener">Abrir o WhatsApp de novo</a></p>
+        </div>
+        <footer class="carrinho__rodape">
+          <button class="botao botao--primario botao--largo" id="sucesso-fechar" type="button">Voltar ao cardápio</button>
+        </footer>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

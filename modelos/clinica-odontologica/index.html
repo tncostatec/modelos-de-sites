@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clínica Sorriso Pleno · Dentista no bairro, avaliação sem compromisso</title>
+  <meta name="description" content="Clínica odontológica de bairro: limpeza, clareamento, implantes, ortodontia, odontopediatria e urgência. Agende uma avaliação sem compromisso, com plano de tratamento e valor por escrito.">
+  <link rel="canonical" href="https://www.exemplo.com.br/">
+  <meta property="og:title" content="Clínica Sorriso Pleno · Dentista no bairro">
+  <meta property="og:description" content="Avaliação sem compromisso, plano de tratamento explicado e valor fechado por escrito antes de começar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.exemplo.com.br/">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#0B3D3A">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Clínica Sorriso Pleno",
+    "description": "Clínica odontológica de bairro com atendimento para toda a família.",
+    "url": "https://www.exemplo.com.br/",
+    "telephone": "+55-00-00000-0000",
+    "email": "contato@exemplo.com.br",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Cidade",
+      "addressRegion": "UF",
+      "postalCode": "00000-000",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -1.455, "longitude": -48.49 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:00" }
+    ]
+  }
+  </script>
+
+  <script src="config.js" defer></script>
+  <script src="assets/js/modelo.js" defer></script>
+  <script src="assets/js/menu.js" defer></script>
+  <script src="assets/js/agenda.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo" data-topo>
+    <div class="topo__faixa container">
+      <a class="marca" href="#inicio" aria-label="Clínica Sorriso Pleno, início">
+        <svg class="marca__simbolo" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect width="40" height="40" rx="12" fill="#0B3D3A"/>
+          <path d="M10 15c3 7 17 7 20 0" fill="none" stroke="#F2683C" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M12 24c2 5 14 5 16 0" fill="none" stroke="#DCEFEC" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="marca__nome" data-modelo="nome">Clínica Sorriso Pleno</span>
+      </a>
+
+      <button class="menu__botao" type="button" data-menu-botao aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu__botao-linhas" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="menu__botao-rotulo">Menu</span>
+      </button>
+
+      <nav class="menu" id="menu-principal" aria-label="Principal">
+        <ul class="menu__lista" data-menu-lista>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#convenios">Convênios</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+          <li><a href="#onde">Onde estamos</a></li>
+        </ul>
+        <div class="menu__acoes">
+          <a class="botao botao--contorno botao--pequeno menu__whats" data-modelo-href="whatsapp" data-whatsapp href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3.3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3l-2-1c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6Z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <button class="botao botao--coral botao--pequeno" type="button" data-abrir-agenda>Agendar avaliação</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- Hero -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <svg class="hero__arcos" viewBox="0 0 640 480" aria-hidden="true" focusable="false">
+        <path d="M-20 40 C 180 420, 460 420, 660 40" fill="none" stroke="#1A8A82" stroke-opacity=".35" stroke-width="2"/>
+        <path d="M40 20 C 200 360, 440 360, 600 20" fill="none" stroke="#1A8A82" stroke-opacity=".45" stroke-width="6"/>
+        <path d="M100 0 C 220 300, 420 300, 540 0" fill="none" stroke="#DCEFEC" stroke-opacity=".18" stroke-width="14"/>
+        <path d="M160 -20 C 240 240, 400 240, 480 -20" fill="none" stroke="#F2683C" stroke-opacity=".9" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+
+      <div class="container hero__grade">
+        <div class="hero__texto">
+          <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Clínica odontológica · Bairro Exemplo</p>
+          <h1 class="hero__titulo" id="hero-titulo">
+            Dentista perto de casa,
+            <em class="grifo">sem susto<svg class="grifo__traco" viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M4 6 C 60 26, 140 26, 196 6" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></em>
+            na cadeira nem no orçamento.
+          </h1>
+          <p class="hero__lead">Avaliação inicial sem compromisso, plano de tratamento explicado em linguagem simples e valor fechado por escrito antes de começar.</p>
+          <div class="hero__acoes">
+            <button class="botao botao--coral botao--grande" type="button" data-abrir-agenda>Agendar avaliação</button>
+            <a class="botao botao--claro botao--grande" data-modelo-href="whatsapp" data-whatsapp href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3.3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3l-2-1c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6Z"/></svg>
+              Chamar no WhatsApp
+            </a>
+          </div>
+          <p class="hero__nota"><span>Seg a sex <span data-modelo="horarios.seg_sex">08:00–18:00</span></span><span>· sáb <span data-modelo="horarios.sab">08:00–12:00</span></span><span>· <a data-modelo-href="telefone" href="tel:+5500000000000"><span data-modelo="telefone">(00) 00000-0000</span></a></span></p>
+        </div>
+
+        <aside class="ficha" aria-labelledby="ficha-titulo">
+          <p class="ficha__eyebrow">Sua primeira consulta</p>
+          <h2 class="ficha__titulo" id="ficha-titulo">O que acontece na avaliação</h2>
+          <ul class="ficha__lista">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Exame clínico</strong> e uma conversa sobre o que incomoda.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Plano de tratamento</strong> por escrito, etapa por etapa.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Valor e formas de pagamento</strong> antes de qualquer procedimento.</span>
+            </li>
+          </ul>
+          <p class="ficha__rodape"><span>Cerca de 30 minutos</span><span>Sem compromisso</span></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="secao secao--neve" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="container">
+        <header class="secao__cabeca">
+          <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Serviços</p>
+          <h2 class="secao__titulo" id="servicos-titulo">Do check-up à urgência, no mesmo lugar.</h2>
+          <p class="secao__lead">Seis frentes de atendimento com a mesma equipe. Você não precisa ser encaminhado para outro endereço.</p>
+        </header>
+
+        <div class="servicos__grade">
+          <article class="cartao servico">
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M8 3.5c-2.8 0-4.5 2.2-4.5 5 0 3.8 2 6.6 2.9 10.4.3 1.2 1.8 1.4 2.3.3L10 15.5h4l1.3 3.7c.5 1.1 2 .9 2.3-.3.9-3.8 2.9-6.6 2.9-10.4 0-2.8-1.7-5-4.5-5-1.4 0-2.2.8-4 .8s-2.6-.8-4-.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M18 2v3M16.5 3.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="servico__titulo">Limpeza e prevenção</h3>
+            <p>Profilaxia, remoção de tártaro e orientação de escovação. A cada seis meses, ou quando o dentista indicar.</p>
+            <p class="servico__meta">Cerca de 45 min</p>
+          </article>
+
+          <article class="cartao servico">
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.5c-2.8 0-4.5 2.2-4.5 5 0 3.8 2 6.6 2.9 10.4.3 1.2 1.8 1.4 2.3.3L10 17.5h4l1.3 3.7c.5 1.1 2 .9 2.3-.3.9-3.8 2.9-6.6 2.9-10.4 0-2.8-1.7-5-4.5-5-1.4 0-2.2.8-4 .8s-2.6-.8-4-.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 1.5v2M7 2.6l1 1.7M17 2.6l-1 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="servico__titulo">Clareamento</h3>
+            <p>No consultório ou com moldeira em casa. Avaliamos a sensibilidade antes de indicar o método.</p>
+            <p class="servico__meta">1 a 3 sessões</p>
+          </article>
+
+          <article class="cartao servico">
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M7.5 3h9l1 4h-11l1-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 7v3.5l1 1.5v2l-1 1.5v2l1 1.5v1.5l2 1 2-1V19l1-1.5v-2l-1-1.5v-2l1-1.5V7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="servico__titulo">Implantes</h3>
+            <p>Reposição de dentes perdidos com planejamento por tomografia e acompanhamento até a prótese final.</p>
+            <p class="servico__meta">Plano em etapas</p>
+          </article>
+
+          <article class="cartao servico">
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M8 4c-2.8 0-4.5 2.2-4.5 5 0 3.8 2 6.6 2.9 10.4.3 1.2 1.8 1.4 2.3.3L10 16h4l1.3 3.7c.5 1.1 2 .9 2.3-.3.9-3.8 2.9-6.6 2.9-10.4 0-2.8-1.7-5-4.5-5-1.4 0-2.2.8-4 .8S9.4 4 8 4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 11h16" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="9.2" width="4" height="3.6" rx=".8" fill="currentColor"/></svg>
+            </span>
+            <h3 class="servico__titulo">Ortodontia</h3>
+            <p>Aparelho fixo ou alinhadores. Consultas mensais curtas, com horários para quem estuda ou trabalha.</p>
+            <p class="servico__meta">Manutenção mensal</p>
+          </article>
+
+          <article class="cartao servico">
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M8 4c-2.8 0-4.5 2.2-4.5 5 0 3.8 2 6.6 2.9 10.4.3 1.2 1.8 1.4 2.3.3L10 16h4l1.3 3.7c.5 1.1 2 .9 2.3-.3.9-3.8 2.9-6.6 2.9-10.4 0-2.8-1.7-5-4.5-5-1.4 0-2.2.8-4 .8S9.4 4 8 4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 11.5c1 1.6 5 1.6 6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="8.5" r=".9" fill="currentColor"/><circle cx="14.5" cy="8.5" r=".9" fill="currentColor"/></svg>
+            </span>
+            <h3 class="servico__titulo">Odontopediatria</h3>
+            <p>Primeira consulta sem pressa, para a criança conhecer a cadeira antes de qualquer procedimento.</p>
+            <p class="servico__meta">A partir dos 2 anos</p>
+          </article>
+
+          <article class="cartao servico servico--urgencia">
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 9v4l2.5 2M9.5 2.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="servico__titulo">Urgência</h3>
+            <p>Dor, dente quebrado ou restauração que caiu: encaixe no mesmo dia dentro do horário de atendimento.</p>
+            <p class="servico__meta">Chame no WhatsApp</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="container">
+        <header class="secao__cabeca">
+          <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Como funciona</p>
+          <h2 class="secao__titulo" id="como-titulo">Três passos, nenhuma surpresa.</h2>
+        </header>
+
+        <ol class="passos">
+          <li class="passo">
+            <span class="passo__numero" aria-hidden="true">1</span>
+            <h3 class="passo__titulo">Agende</h3>
+            <p>Escolha dia e horário aqui no site ou pelo WhatsApp. Confirmamos por mensagem na véspera.</p>
+          </li>
+          <li class="passo">
+            <span class="passo__numero" aria-hidden="true">2</span>
+            <h3 class="passo__titulo">Avaliação</h3>
+            <p>Exame clínico, radiografia se precisar e um plano de tratamento explicado sem termos técnicos.</p>
+          </li>
+          <li class="passo">
+            <span class="passo__numero" aria-hidden="true">3</span>
+            <h3 class="passo__titulo">Tratamento</h3>
+            <p>Você aprova o valor por escrito antes de começar. Sem cobrança extra no meio do caminho.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Equipe -->
+    <section class="secao secao--neve" id="equipe" aria-labelledby="equipe-titulo">
+      <div class="container">
+        <header class="secao__cabeca">
+          <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Equipe</p>
+          <h2 class="secao__titulo" id="equipe-titulo">Quem vai cuidar de você.</h2>
+          <p class="secao__lead">Três profissionais fixos. Você é atendido sempre pela mesma pessoa, do início ao fim do tratamento.</p>
+        </header>
+
+        <div class="equipe__grade">
+          <article class="cartao profissional">
+            <svg class="profissional__avatar" viewBox="0 0 96 96" role="img" aria-label="Avatar genérico">
+              <circle cx="48" cy="48" r="48" fill="#DCEFEC"/>
+              <circle cx="48" cy="38" r="16" fill="#0F5F5A"/>
+              <path d="M16 92c4-20 18-28 32-28s28 8 32 28" fill="#0F5F5A"/>
+            </svg>
+            <h3 class="profissional__nome">Dra. Nome Exemplo</h3>
+            <p class="profissional__area">Clínica geral e prevenção</p>
+            <p class="profissional__bio">Atende adultos e idosos. Faz questão de explicar cada etapa antes de começar.</p>
+            <p class="profissional__cro">CRO-UF 00000</p>
+          </article>
+
+          <article class="cartao profissional">
+            <svg class="profissional__avatar" viewBox="0 0 96 96" role="img" aria-label="Avatar genérico">
+              <circle cx="48" cy="48" r="48" fill="#FBDCD0"/>
+              <circle cx="48" cy="38" r="16" fill="#0B3D3A"/>
+              <path d="M16 92c4-20 18-28 32-28s28 8 32 28" fill="#0B3D3A"/>
+            </svg>
+            <h3 class="profissional__nome">Dr. Nome Exemplo</h3>
+            <p class="profissional__area">Implantodontia e prótese</p>
+            <p class="profissional__bio">Planeja cada implante por tomografia e acompanha até a prótese definitiva.</p>
+            <p class="profissional__cro">CRO-UF 00000</p>
+          </article>
+
+          <article class="cartao profissional">
+            <svg class="profissional__avatar" viewBox="0 0 96 96" role="img" aria-label="Avatar genérico">
+              <circle cx="48" cy="48" r="48" fill="#BFE3DE"/>
+              <circle cx="48" cy="38" r="16" fill="#137A72"/>
+              <path d="M16 92c4-20 18-28 32-28s28 8 32 28" fill="#137A72"/>
+            </svg>
+            <h3 class="profissional__nome">Dra. Nome Exemplo</h3>
+            <p class="profissional__area">Odontopediatria</p>
+            <p class="profissional__bio">Primeira consulta é só para conhecer. A criança senta na cadeira quando quiser.</p>
+            <p class="profissional__cro">CRO-UF 00000</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Convênios -->
+    <section class="secao secao--compacta" id="convenios" aria-labelledby="convenios-titulo">
+      <div class="container convenios">
+        <div class="convenios__texto">
+          <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Convênios</p>
+          <h2 class="secao__titulo secao__titulo--menor" id="convenios-titulo">Convênios e formas de pagamento</h2>
+          <p class="secao__lead">Não encontrou o seu? Pergunte no WhatsApp: também atendemos particular com parcelamento.</p>
+        </div>
+        <ul class="chips" aria-label="Convênios aceitos (lista de exemplo)">
+          <li class="chip">Plano Exemplo A</li>
+          <li class="chip">Odonto Exemplo</li>
+          <li class="chip">Saúde Exemplo</li>
+          <li class="chip">Dental Exemplo</li>
+          <li class="chip chip--destaque">Particular</li>
+          <li class="chip chip--destaque">Pix e cartão</li>
+          <li class="chip chip--nota">lista de exemplo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="secao secao--verde" id="depoimentos" aria-labelledby="depoimentos-titulo">
+      <div class="container">
+        <header class="secao__cabeca">
+          <p class="selo selo--claro"><span class="selo__arco" aria-hidden="true"></span>Depoimentos</p>
+          <h2 class="secao__titulo" id="depoimentos-titulo">O que os pacientes contam.</h2>
+        </header>
+
+        <div class="depoimentos__grade">
+          <figure class="depoimento">
+            <blockquote>
+              <p>“Cheguei com medo de dentista e saí com um plano no papel, valor fechado e a sensação de que alguém finalmente explicou o que estava acontecendo com a minha boca.”</p>
+            </blockquote>
+            <figcaption><span class="depoimento__nome">Nome Exemplo</span><span class="depoimento__meta">paciente de ortodontia · depoimento de exemplo</span></figcaption>
+          </figure>
+          <figure class="depoimento">
+            <blockquote>
+              <p>“Minha filha tinha pavor de dentista. A primeira consulta foi só para conhecer a sala. Na segunda ela sentou sozinha.”</p>
+            </blockquote>
+            <figcaption><span class="depoimento__nome">Nome Exemplo</span><span class="depoimento__meta">mãe de paciente · depoimento de exemplo</span></figcaption>
+          </figure>
+          <figure class="depoimento">
+            <blockquote>
+              <p>“Quebrei um dente numa quinta à tarde. Mandei mensagem, fui encaixado no mesmo dia e saí de lá sem dor.”</p>
+            </blockquote>
+            <figcaption><span class="depoimento__nome">Nome Exemplo</span><span class="depoimento__meta">atendimento de urgência · depoimento de exemplo</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="secao" id="faq" aria-labelledby="faq-titulo">
+      <div class="container faq">
+        <header class="secao__cabeca secao__cabeca--esquerda">
+          <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Dúvidas frequentes</p>
+          <h2 class="secao__titulo" id="faq-titulo">Antes de marcar, o que mais perguntam.</h2>
+        </header>
+
+        <div class="faq__lista">
+          <details class="faq__item" name="faq" open>
+            <summary>A avaliação inicial tem custo?</summary>
+            <div class="faq__corpo"><p>Não. A primeira consulta serve para examinar, entender o que incomoda e montar o plano de tratamento. Você só paga se decidir seguir com algum procedimento, e sabe o valor antes.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Atendem urgência no mesmo dia?</summary>
+            <div class="faq__corpo"><p>Sim, dentro do horário de funcionamento. Mande mensagem no WhatsApp descrevendo o que aconteceu e reservamos um encaixe. Fora do horário, orientamos pelo WhatsApp o que fazer até a abertura.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Aceitam convênio?</summary>
+            <div class="faq__corpo"><p>Atendemos os convênios listados acima e também particular. Se o seu plano não estiver na lista, pergunte: a cobertura muda com frequência e podemos conferir o seu caso.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Como funciona o pagamento?</summary>
+            <div class="faq__corpo"><p>Pix, cartão de débito e crédito, com parcelamento em tratamentos mais longos. O valor é fechado por escrito no plano de tratamento e não muda durante o processo.</p></div>
+          </details>
+          <details class="faq__item" name="faq">
+            <summary>Posso remarcar a consulta?</summary>
+            <div class="faq__corpo"><p>Pode, sem custo, avisando até 24 horas antes pelo WhatsApp. Assim liberamos o horário para outra pessoa que esteja esperando encaixe.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="secao secao--neve" id="onde" aria-labelledby="onde-titulo">
+      <div class="container">
+        <header class="secao__cabeca">
+          <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Onde estamos</p>
+          <h2 class="secao__titulo" id="onde-titulo">A poucas quadras de casa.</h2>
+        </header>
+
+        <div class="local">
+          <div class="local__mapa">
+            <iframe data-mapa title="Mapa com a localização da clínica (OpenStreetMap)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=-48.498%2C-1.46%2C-48.482%2C-1.45&amp;layer=mapnik&amp;marker=-1.455%2C-48.49"></iframe>
+          </div>
+          <div class="cartao local__info">
+            <h3 class="local__nome" data-modelo="nome">Clínica Sorriso Pleno</h3>
+            <address class="local__endereco">
+              <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span><br>
+              <a data-modelo-href="telefone" href="tel:+5500000000000"><span data-modelo="telefone">(00) 00000-0000</span></a><br>
+              <a data-modelo-href="email" href="mailto:contato@exemplo.com.br"><span data-modelo="email">contato@exemplo.com.br</span></a>
+            </address>
+            <table class="horarios">
+              <caption class="visualmente-oculto">Horários de atendimento</caption>
+              <tbody>
+                <tr><th scope="row">Segunda a sexta</th><td data-modelo="horarios.seg_sex">08:00–18:00</td></tr>
+                <tr><th scope="row">Sábado</th><td data-modelo="horarios.sab">08:00–12:00</td></tr>
+                <tr><th scope="row">Domingo</th><td data-modelo="horarios.dom">fechado</td></tr>
+              </tbody>
+            </table>
+            <div class="local__acoes">
+              <button class="botao botao--coral" type="button" data-abrir-agenda>Agendar avaliação</button>
+              <a class="botao botao--contorno" data-modelo-href="rota" href="https://www.openstreetmap.org/directions?to=-1.455%2C-48.49" target="_blank" rel="noopener">Como chegar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape__grade">
+      <div class="rodape__marca">
+        <svg class="marca__simbolo" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <rect width="40" height="40" rx="12" fill="#DCEFEC"/>
+          <path d="M10 15c3 7 17 7 20 0" fill="none" stroke="#F2683C" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M12 24c2 5 14 5 16 0" fill="none" stroke="#0B3D3A" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <p class="rodape__nome" data-modelo="nome">Clínica Sorriso Pleno</p>
+        <p class="rodape__slogan" data-modelo="slogan">Odontologia de bairro, para toda a família</p>
+      </div>
+      <div class="rodape__coluna">
+        <h2 class="rodape__titulo">Contato</h2>
+        <p><span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span></p>
+        <p><a data-modelo-href="telefone" href="tel:+5500000000000"><span data-modelo="telefone">(00) 00000-0000</span></a></p>
+        <p><a data-modelo-href="email" href="mailto:contato@exemplo.com.br"><span data-modelo="email">contato@exemplo.com.br</span></a></p>
+      </div>
+      <div class="rodape__coluna">
+        <h2 class="rodape__titulo">Navegação</h2>
+        <ul class="rodape__links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
+          <li><a href="#onde">Onde estamos</a></li>
+        </ul>
+      </div>
+      <div class="rodape__coluna">
+        <h2 class="rodape__titulo">Legal</h2>
+        <p>CNPJ <span data-modelo="cnpj">00.000.000/0001-00</span></p>
+        <p>Responsável técnica: Dra. Nome Exemplo · CRO-UF 00000</p>
+        <p><a href="#inicio">Política de privacidade</a></p>
+      </div>
+    </div>
+    <div class="container rodape__base">
+      <p>Site modelo com dados fictícios. Nenhuma pessoa, empresa ou depoimento aqui é real.</p>
+    </div>
+  </footer>
+
+  <!-- Agendamento -->
+  <dialog class="dialogo" id="dialogo-agenda" aria-labelledby="agenda-titulo">
+    <div class="dialogo__topo">
+      <div>
+        <p class="selo"><span class="selo__arco" aria-hidden="true"></span>Agendamento</p>
+        <h2 class="dialogo__titulo" id="agenda-titulo">Agendar avaliação</h2>
+      </div>
+      <button class="dialogo__fechar" type="button" data-fechar-agenda aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <p class="aviso" data-aviso-demo hidden>Demonstração sem servidor: a mensagem abre no WhatsApp.</p>
+
+    <form class="formulario" id="form-agenda" novalidate>
+      <div class="campo">
+        <label for="ag-nome">Nome</label>
+        <input id="ag-nome" name="nome" type="text" autocomplete="name" required minlength="3" aria-describedby="ag-nome-erro">
+        <p class="campo__erro" id="ag-nome-erro" hidden></p>
+      </div>
+
+      <div class="campo">
+        <label for="ag-telefone">Telefone com DDD</label>
+        <input id="ag-telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" required aria-describedby="ag-telefone-erro">
+        <p class="campo__erro" id="ag-telefone-erro" hidden></p>
+      </div>
+
+      <div class="campo">
+        <label for="ag-servico">Serviço</label>
+        <select id="ag-servico" name="servico" required aria-describedby="ag-servico-erro">
+          <option value="">Escolha…</option>
+          <option value="avaliacao">Avaliação inicial</option>
+          <option value="limpeza">Limpeza e prevenção</option>
+          <option value="clareamento">Clareamento</option>
+          <option value="implantes">Implantes</option>
+          <option value="ortodontia">Ortodontia</option>
+          <option value="odontopediatria">Odontopediatria</option>
+          <option value="urgencia">Urgência</option>
+        </select>
+        <p class="campo__erro" id="ag-servico-erro" hidden></p>
+      </div>
+
+      <div class="campo campo--dupla">
+        <div class="campo">
+          <label for="ag-data">Data</label>
+          <input id="ag-data" name="data" type="date" required aria-describedby="ag-data-erro">
+          <p class="campo__erro" id="ag-data-erro" hidden></p>
+        </div>
+        <div class="campo" data-horario-livre>
+          <label for="ag-hora">Horário</label>
+          <input id="ag-hora" name="hora" type="time" min="08:00" max="18:00" step="1800" required aria-describedby="ag-hora-erro">
+          <p class="campo__erro" id="ag-hora-erro" hidden></p>
+        </div>
+        <div class="campo" data-horario-api hidden>
+          <label for="ag-slot">Horário</label>
+          <select id="ag-slot" name="slot" aria-describedby="ag-slot-erro ag-slot-dica">
+            <option value="">Escolha a data primeiro</option>
+          </select>
+          <p class="campo__dica" id="ag-slot-dica" hidden></p>
+          <p class="campo__erro" id="ag-slot-erro" hidden></p>
+        </div>
+      </div>
+
+      <div class="campo campo--consentimento">
+        <input id="ag-consentimento" name="consentimento" type="checkbox" required aria-describedby="ag-consentimento-erro">
+        <label for="ag-consentimento">Autorizo o uso do meu nome e telefone apenas para confirmar este agendamento (LGPD).</label>
+        <p class="campo__erro" id="ag-consentimento-erro" hidden></p>
+      </div>
+
+      <div class="campo campo--honeypot" aria-hidden="true">
+        <label for="ag-site">Deixe em branco</label>
+        <input id="ag-site" name="site" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <p class="formulario__status" data-status role="alert" hidden></p>
+
+      <div class="formulario__acoes">
+        <button class="botao botao--coral botao--grande" type="submit" data-enviar>Confirmar agendamento</button>
+        <button class="botao botao--fantasma" type="button" data-fechar-agenda>Cancelar</button>
+      </div>
+    </form>
+
+    <div class="sucesso" data-sucesso hidden>
+      <svg class="sucesso__icone" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="22" fill="#DCEFEC"/><path d="M14 25l7 7 13-14" fill="none" stroke="#0F5F5A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3 class="sucesso__titulo" data-sucesso-titulo>Pedido enviado</h3>
+      <p class="sucesso__texto" data-sucesso-texto></p>
+      <p class="sucesso__link" data-sucesso-link hidden><a href="#" target="_blank" rel="noopener">Abrir a mensagem no WhatsApp</a></p>
+      <button class="botao botao--contorno" type="button" data-fechar-agenda>Fechar</button>
+    </div>
+  </dialog>
+</body>
+</html>

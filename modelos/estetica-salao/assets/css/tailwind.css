@@ -1,0 +1,68 @@
+/* Fonte do CSS deste modelo. Compilar com:
+   npx --yes tailwindcss@3.4.17 -c tailwind.config.js -i assets/css/tailwind.css -o assets/css/styles.css --minify */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  body { @apply bg-white font-sans text-grafite-900 antialiased; }
+  [x-cloak] { display: none !important; }
+  [hidden] { display: none !important; }
+  :focus-visible { @apply outline-none ring-2 ring-rose-700 ring-offset-2 ring-offset-white; }
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0s !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  /* Layout */
+  .container-site { @apply mx-auto w-full max-w-site px-5 sm:px-8; }
+  .secao { @apply py-16 sm:py-20 lg:py-28; }
+
+  /* Tipografia editorial: Playfair só em títulos e itálicos de destaque */
+  .eyebrow { @apply text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-rose-800; }
+  .titulo { @apply font-display font-medium leading-[1.05] tracking-tight text-grafite-900; }
+  .titulo-secao { @apply font-display text-3xl font-medium leading-[1.05] tracking-tight text-grafite-900 sm:text-4xl lg:text-5xl; }
+  .titulo-secao em { @apply italic text-rose-700; }
+
+  /* Botões */
+  .btn { @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-full border-2 border-transparent px-5 py-2.5 text-sm font-semibold leading-tight transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primario { @apply bg-grafite-900 text-white hover:bg-grafite-700; }
+  .btn-secundario { @apply border-grafite-900 text-grafite-900 hover:bg-grafite-50; }
+  .btn-claro { @apply border-white/60 text-white hover:border-white hover:bg-white/10; }
+  .btn-suave { @apply bg-rose-100 text-rose-900 hover:bg-rose-200; }
+  .btn-icone { @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-grafite-200 bg-white text-grafite-900 transition-colors hover:bg-grafite-50 disabled:opacity-40; }
+
+  /* Formulário */
+  .campo { @apply block w-full rounded-xl border border-grafite-300 bg-white px-3.5 py-2.5 text-base text-grafite-900 placeholder:text-grafite-500 focus:border-grafite-900 aria-[invalid=true]:border-rose-700 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-rose-200; }
+  .rotulo { @apply mb-1.5 block text-sm font-semibold text-grafite-900; }
+  .erro { @apply mt-1.5 text-sm font-medium text-rose-800; }
+
+  /* Opção selecionável (serviço, profissional, horário) */
+  .opcao { @apply w-full rounded-xl border border-grafite-200 bg-white px-4 py-3 text-left text-sm transition-colors hover:border-grafite-900 aria-pressed:border-grafite-900 aria-pressed:bg-grafite-900 aria-pressed:text-white; }
+
+  /* Abas de serviços */
+  .aba { @apply relative whitespace-nowrap px-1 pb-3 pt-1 text-sm font-semibold text-grafite-500 transition-colors hover:text-grafite-900 aria-selected:text-grafite-900; }
+  .aba::after { content: ""; @apply absolute inset-x-0 bottom-0 h-0.5 scale-x-0 bg-rose-700 transition-transform duration-200; }
+  .aba[aria-selected="true"]::after { @apply scale-x-100; }
+
+  /* "Fotos" da galeria e do hero: composições SVG */
+  .tile { @apply relative block w-full overflow-hidden rounded-2xl bg-areia-100; }
+  .tile svg { @apply h-full w-full; }
+
+  /* Fundo pontilhado atrás do iframe do mapa (visível enquanto o lazy-load não dispara) */
+  .mapa-fundo { background-color: theme("colors.areia.50"); background-image: radial-gradient(circle at center, theme("colors.areia.300") 0 2px, transparent 2.5px); background-size: 1.5rem 1.5rem; }
+
+  /* Chip informativo */
+  .chip { @apply inline-flex items-center rounded-full bg-areia-100 px-3 py-1 text-xs font-semibold text-grafite-700; }
+
+  /* Link "pular para o conteúdo" */
+  .pular { @apply fixed left-3 top-3 z-[100] -translate-y-[200%] rounded-lg bg-grafite-900 px-4 py-3 text-sm font-semibold text-white focus:translate-y-0; }
+
+  /* Honeypot: fora da tela, mas presente no DOM (sem display:none) */
+  .honeypot { @apply absolute -left-[200vw] top-0 h-px w-px overflow-hidden; }
+}

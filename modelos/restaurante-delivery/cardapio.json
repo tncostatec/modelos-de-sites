@@ -1,0 +1,218 @@
+{
+  "versao": "2026-10-14",
+  "etiquetas": {
+    "vegetariano": "Vegetariano",
+    "sem-gluten": "Sem glúten",
+    "picante": "Picante"
+  },
+  "categorias": [
+    {
+      "id": "antipasti",
+      "nome": "Antipasti",
+      "descricao": "Para abrir a mesa enquanto a massa não chega.",
+      "itens": [
+        {
+          "id": "bruschetta-tomate",
+          "nome": "Bruschetta de tomate e manjericão",
+          "descricao": "Pão de fermentação natural tostado, tomate maduro, alho, azeite e manjericão fresco. 4 unidades.",
+          "preco": 24.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "burrata",
+          "nome": "Burrata com pesto de pistache",
+          "descricao": "Burrata cremosa, pesto de pistache e tomate confitado. Acompanha focaccia.",
+          "preco": 46.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": true
+        },
+        {
+          "id": "polpette",
+          "nome": "Polpette ao sugo",
+          "descricao": "Almôndegas de carne bovina e suína no molho de tomate da casa, parmesão ralado na hora. 5 unidades.",
+          "preco": 38.0,
+          "etiquetas": [],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "berinjela-marinada",
+          "nome": "Berinjela marinada",
+          "descricao": "Lâminas de berinjela grelhadas, vinagre de vinho, alho, orégano e pimenta calabresa.",
+          "preco": 22.0,
+          "etiquetas": ["vegetariano", "sem-gluten", "picante"],
+          "disponivel": true,
+          "destaque": false
+        }
+      ]
+    },
+    {
+      "id": "massas",
+      "nome": "Massas",
+      "descricao": "Abertas na casa todas as manhãs. Molhos em fogo baixo.",
+      "itens": [
+        {
+          "id": "lasanha-bolonhesa",
+          "nome": "Lasanha à bolonhesa",
+          "descricao": "A receita de 1964: massa fresca em camadas, ragù de carne cozido por 6 horas, bechamel e parmesão.",
+          "preco": 54.0,
+          "etiquetas": [],
+          "disponivel": true,
+          "destaque": true
+        },
+        {
+          "id": "tagliatelle-funghi",
+          "nome": "Tagliatelle ao funghi",
+          "descricao": "Tagliatelle fresco, mix de cogumelos salteados, manteiga, tomilho e lascas de grana padano.",
+          "preco": 52.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "nhoque-sugo",
+          "nome": "Nhoque de batata ao sugo",
+          "descricao": "Nhoque leve de batata, molho de tomate da casa e manjericão. Peça com polpette por + R$ 14.",
+          "preco": 42.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "penne-arrabbiata",
+          "nome": "Penne all'arrabbiata",
+          "descricao": "Penne, molho de tomate, alho, azeite e bastante pimenta calabresa. Para quem gosta de ardor.",
+          "preco": 44.0,
+          "etiquetas": ["vegetariano", "picante"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "ravioli-abobora",
+          "nome": "Ravioli de abóbora e sálvia",
+          "descricao": "Massa recheada de abóbora assada e ricota, manteiga noisette e sálvia crocante.",
+          "preco": 56.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": false,
+          "destaque": false
+        },
+        {
+          "id": "spaghetti-sem-gluten",
+          "nome": "Spaghetti sem glúten ao pomodoro",
+          "descricao": "Massa de arroz e milho, molho de tomate fresco, alho e manjericão. Preparada em panela separada.",
+          "preco": 46.0,
+          "etiquetas": ["vegetariano", "sem-gluten"],
+          "disponivel": true,
+          "destaque": false
+        }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "nome": "Pizzas",
+      "descricao": "Forno a lenha, massa de 48 horas, borda fina e queimadinha. Tamanho único, 8 fatias.",
+      "itens": [
+        {
+          "id": "pizza-margherita",
+          "nome": "Margherita",
+          "descricao": "Molho de tomate, mozarela fresca, manjericão e azeite. A prova de qualquer pizzaria.",
+          "preco": 58.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": true
+        },
+        {
+          "id": "pizza-calabresa",
+          "nome": "Calabresa artesanal",
+          "descricao": "Molho de tomate, mozarela, calabresa curada na casa, cebola roxa e orégano.",
+          "preco": 64.0,
+          "etiquetas": [],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "pizza-diavola",
+          "nome": "Diavola",
+          "descricao": "Molho de tomate, mozarela, salame picante, pimenta calabresa e mel de pimenta.",
+          "preco": 68.0,
+          "etiquetas": ["picante"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "pizza-funghi",
+          "nome": "Funghi e trufa",
+          "descricao": "Base branca, mozarela, cogumelos, azeite trufado e rúcula.",
+          "preco": 72.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "pizza-quatro-queijos",
+          "nome": "Quattro formaggi",
+          "descricao": "Mozarela, gorgonzola, provolone e parmesão sobre base branca.",
+          "preco": 66.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": false,
+          "destaque": false
+        }
+      ]
+    },
+    {
+      "id": "doces-bebidas",
+      "nome": "Doces e bebidas",
+      "descricao": "Para fechar a conta com açúcar ou com gás.",
+      "itens": [
+        {
+          "id": "tiramisu",
+          "nome": "Tiramisù da Nonna",
+          "descricao": "Biscoito champanhe embebido em café, creme de mascarpone e cacau. Porção individual.",
+          "preco": 24.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": true
+        },
+        {
+          "id": "panna-cotta",
+          "nome": "Panna cotta de baunilha",
+          "descricao": "Creme de baunilha com calda de frutas vermelhas. Sem farinha.",
+          "preco": 20.0,
+          "etiquetas": ["vegetariano", "sem-gluten"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "cannoli",
+          "nome": "Cannoli siciliano",
+          "descricao": "Massa crocante recheada na hora com ricota doce e gotas de chocolate. 2 unidades.",
+          "preco": 18.0,
+          "etiquetas": ["vegetariano"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "limonada-siciliana",
+          "nome": "Limonada siciliana",
+          "descricao": "Limão siciliano batido com casca, leite condensado e gelo. 500 ml.",
+          "preco": 14.0,
+          "etiquetas": ["vegetariano", "sem-gluten"],
+          "disponivel": true,
+          "destaque": false
+        },
+        {
+          "id": "agua-com-gas",
+          "nome": "Água com gás",
+          "descricao": "Garrafa de 500 ml, gelada.",
+          "preco": 6.0,
+          "etiquetas": ["vegetariano", "sem-gluten"],
+          "disponivel": true,
+          "destaque": false
+        }
+      ]
+    }
+  ]
+}

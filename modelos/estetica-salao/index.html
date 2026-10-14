@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ateliê Belle · Salão de beleza e estética com hora marcada</title>
+  <meta name="description" content="Salão de beleza e estética: cabelo, unhas, estética facial e depilação com hora marcada. Veja o portfólio, escolha a profissional e agende online.">
+  <link rel="canonical" href="https://www.exemplo.com.br/">
+  <meta property="og:title" content="Ateliê Belle · Salão de beleza e estética">
+  <meta property="og:description" content="Cabelo, unhas e pele com hora marcada. Escolha o serviço, a profissional e o horário.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.exemplo.com.br/">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#F1D8D2">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Ateliê Belle",
+    "description": "Salão de beleza e estética: cabelo, unhas, estética facial e depilação com hora marcada.",
+    "url": "https://www.exemplo.com.br/",
+    "telephone": "+55-00-00000-0000",
+    "email": "contato@exemplo.com.br",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Cidade",
+      "addressRegion": "UF",
+      "postalCode": "00000-000",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -1.455, "longitude": -48.49 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "17:00" }
+    ]
+  }
+  </script>
+
+  <script src="config.js" defer></script>
+  <script src="assets/js/modelo.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js" integrity="sha384-X9kJyAubVxnP0hcA+AMMs21U445qsnqhnUF8EBlEpP3a42Kh/JwWjlv2ZcvGfphb" crossorigin="anonymous" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Topo -->
+  <header class="sticky top-0 z-40 border-b border-grafite-900/10 bg-white/90 backdrop-blur" x-data="{ aberto: false }" x-on:keydown.escape.window="aberto = false">
+    <div class="container-site relative flex min-h-[4.25rem] items-center justify-between gap-6">
+      <a href="#inicio" class="font-display text-[1.6rem] italic leading-none tracking-tight text-grafite-900" aria-label="Ateliê Belle, início">
+        <span data-modelo="nome">Ateliê Belle</span>
+      </a>
+
+      <button type="button" class="inline-flex min-h-[2.75rem] items-center gap-2 rounded-lg border border-grafite-200 px-3 text-sm font-semibold lg:hidden" data-menu-botao
+              x-on:click="aberto = !aberto" x-bind:aria-expanded="aberto ? 'true' : 'false'" aria-controls="menu-principal">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path x-show="!aberto" d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path x-show="aberto" x-cloak d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span x-text="aberto ? 'Fechar' : 'Menu'">Menu</span>
+      </button>
+
+      <nav id="menu-principal" aria-label="Principal"
+           class="absolute inset-x-0 top-full flex-col gap-3 border-b border-grafite-900/10 bg-white px-5 pb-5 pt-2 shadow-suave lg:static lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
+           x-bind:class="aberto ? 'flex' : 'hidden lg:flex'"
+           x-on:click="if ($event.target.closest('a')) aberto = false">
+        <ul class="flex flex-col lg:flex-row lg:gap-1">
+          <li><a class="block rounded-lg px-3 py-2.5 text-[0.9375rem] font-medium text-grafite-700 hover:bg-areia-50 hover:text-grafite-900" href="#servicos">Serviços</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 text-[0.9375rem] font-medium text-grafite-700 hover:bg-areia-50 hover:text-grafite-900" href="#portfolio">Portfólio</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 text-[0.9375rem] font-medium text-grafite-700 hover:bg-areia-50 hover:text-grafite-900" href="#equipe">Equipe</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 text-[0.9375rem] font-medium text-grafite-700 hover:bg-areia-50 hover:text-grafite-900" href="#pacotes">Pacotes</a></li>
+          <li><a class="block rounded-lg px-3 py-2.5 text-[0.9375rem] font-medium text-grafite-700 hover:bg-areia-50 hover:text-grafite-900" href="#onde">Onde estamos</a></li>
+        </ul>
+        <div class="flex flex-wrap gap-2.5 pt-1 lg:pt-0">
+          <a class="btn btn-secundario flex-1 lg:hidden" data-modelo-href="whatsapp" data-whatsapp href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-primario flex-1 lg:flex-none" href="#agendamento">Agendar horário</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- Hero editorial -->
+    <section id="inicio" class="relative overflow-hidden bg-white" aria-labelledby="hero-titulo">
+      <p class="eyebrow absolute bottom-0 left-5 top-0 hidden items-center whitespace-nowrap [writing-mode:vertical-rl] min-[1400px]:flex" aria-hidden="true">
+        <span class="rotate-180">Ateliê · cabelo · unhas · pele · hora marcada</span>
+      </p>
+
+      <div class="container-site grid gap-12 py-14 lg:grid-cols-12 lg:items-center lg:gap-6 lg:py-24">
+        <div class="relative z-10 lg:col-span-7">
+          <p class="eyebrow">Salão e estética · Bairro Exemplo</p>
+          <h1 id="hero-titulo" class="titulo mt-5 text-[2.75rem] sm:text-6xl lg:-mr-24 lg:text-7xl xl:text-[5.5rem]">
+            Cabelo, unhas e pele <em class="italic text-rose-700">sem pressa</em>, com hora marcada.
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-grafite-500">
+            Você escolhe o serviço, a profissional e o horário. Chega, senta e sai com o que combinou — sem fila e sem espera.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn btn-primario" href="#agendamento">Agendar horário</a>
+            <a class="btn btn-secundario" href="#portfolio">Ver portfólio</a>
+          </div>
+          <p class="mt-6 flex flex-wrap gap-x-2 gap-y-1 text-sm text-grafite-500">
+            <span>Seg a sex <span data-modelo="horarios.seg_sex">09:00–19:00</span></span>
+            <span>· sáb <span data-modelo="horarios.sab">09:00–17:00</span></span>
+            <span>· <a class="whitespace-nowrap font-semibold text-grafite-900 underline underline-offset-4" data-modelo-href="telefone" href="tel:+5500000000000"><span data-modelo="telefone">(00) 00000-0000</span></a></span>
+          </p>
+        </div>
+
+        <!-- Composição de "fotos": o swatch (pincelada) é a assinatura visual do modelo -->
+        <div class="relative lg:col-span-5" aria-hidden="true">
+          <div class="tile ml-auto aspect-[4/5] w-[84%] bg-rose-200 shadow-tile sm:w-[72%] lg:w-[88%]">
+            <svg viewBox="0 0 400 500" focusable="false">
+              <defs>
+                <linearGradient id="g-hero-a" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#F6E4E0"/><stop offset="1" stop-color="#E6BDB5"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="500" fill="url(#g-hero-a)"/>
+              <path d="M70 410 C 40 300, 120 150, 250 130 C 360 115, 400 200, 350 280 C 300 360, 190 320, 160 410 C 140 470, 90 460, 70 410 Z" fill="#9E5C53" opacity=".92"/>
+              <path d="M110 330 C 150 250, 230 210, 300 220" fill="none" stroke="#FBF3F1" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+              <path d="M130 370 C 170 300, 240 260, 320 265" fill="none" stroke="#FBF3F1" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+              <circle cx="320" cy="90" r="26" fill="#FBF3F1" opacity=".9"/>
+            </svg>
+          </div>
+          <div class="tile absolute -bottom-6 left-0 aspect-square w-[46%] bg-areia-200 shadow-tile sm:left-6 lg:-left-4">
+            <svg viewBox="0 0 300 300" focusable="false">
+              <rect width="300" height="300" fill="#EADFCF"/>
+              <g fill="#26262B">
+                <rect x="40" y="130" width="34" height="120" rx="17"/>
+                <rect x="88" y="100" width="34" height="150" rx="17"/>
+                <rect x="136" y="85" width="34" height="165" rx="17"/>
+                <rect x="184" y="105" width="34" height="145" rx="17"/>
+                <rect x="232" y="140" width="34" height="110" rx="17"/>
+              </g>
+              <g fill="#D9A39A">
+                <rect x="40" y="130" width="34" height="34" rx="17"/>
+                <rect x="88" y="100" width="34" height="34" rx="17"/>
+                <rect x="136" y="85" width="34" height="34" rx="17"/>
+                <rect x="184" y="105" width="34" height="34" rx="17"/>
+                <rect x="232" y="140" width="34" height="34" rx="17"/>
+              </g>
+            </svg>
+          </div>
+          <div class="absolute -bottom-10 right-0 rounded-xl bg-white px-4 py-3 shadow-suave sm:right-8 lg:-bottom-8 lg:right-0">
+            <p class="eyebrow">Atendimento</p>
+            <p class="mt-0.5 text-sm font-semibold text-grafite-900">Seg a sáb · só com hora marcada</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços em abas -->
+    <section id="servicos" class="secao bg-areia-50" aria-labelledby="servicos-titulo" x-data="abas">
+      <div class="container-site">
+        <div class="grid gap-10 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <p class="eyebrow">Serviços</p>
+            <h2 id="servicos-titulo" class="titulo-secao mt-3">Quatro frentes, <em>uma agenda</em>.</h2>
+            <p class="mt-4 text-grafite-500">Duração estimada para você planejar o dia. Valores são confirmados na avaliação, porque cabelo e pele não são iguais.</p>
+            <p class="mt-6"><a class="btn btn-secundario" href="#agendamento">Agendar horário</a></p>
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="-mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+              <div role="tablist" aria-label="Categorias de serviço" class="flex min-w-max gap-6 border-b border-grafite-900/10"
+                   x-on:keydown.arrow-right.prevent="mover(1)" x-on:keydown.arrow-left.prevent="mover(-1)"
+                   x-on:keydown.home.prevent="selecionar(categorias[0].id)" x-on:keydown.end.prevent="selecionar(categorias[categorias.length - 1].id)">
+                <template x-for="c in categorias" x-bind:key="c.id">
+                  <button type="button" role="tab" class="aba" x-bind:data-aba="c.id"
+                          x-bind:id="'aba-' + c.id" x-bind:aria-controls="'painel-' + c.id"
+                          x-bind:aria-selected="ativa === c.id ? 'true' : 'false'" x-bind:tabindex="ativa === c.id ? 0 : -1"
+                          x-on:click="selecionar(c.id)" x-text="c.nome"></button>
+                </template>
+              </div>
+            </div>
+
+            <template x-for="c in categorias" x-bind:key="c.id">
+              <div role="tabpanel" x-bind:id="'painel-' + c.id" x-bind:aria-labelledby="'aba-' + c.id" tabindex="0"
+                   x-show="ativa === c.id" x-cloak class="animate-surgir">
+                <ul class="divide-y divide-grafite-900/10">
+                  <template x-for="s in servicos[c.id]" x-bind:key="s.id">
+                    <li class="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-2 py-4 sm:grid-cols-[1fr_auto_auto] sm:gap-x-6">
+                      <div class="col-span-2 min-w-0 sm:col-span-1">
+                        <p class="font-display text-xl text-grafite-900" x-text="s.nome"></p>
+                        <p class="mt-0.5 text-sm text-grafite-500"><span x-text="s.nota"></span> · <span x-text="s.duracao + ' min'"></span></p>
+                      </div>
+                      <p class="text-sm font-semibold text-grafite-900"><span class="font-normal text-grafite-500">a partir de</span> R$ --</p>
+                      <a class="btn btn-suave min-h-[2.5rem] justify-self-end px-4 text-xs" href="#agendamento"
+                         x-on:click="$dispatch('escolher-servico', { id: s.id })"
+                         x-bind:aria-label="'Agendar ' + s.nome">Agendar</a>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+            </template>
+            <p class="mt-4 text-xs text-grafite-500">Valores de exemplo: "R$ --" é substituído pela tabela do salão na personalização.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio" class="secao bg-white" aria-labelledby="portfolio-titulo" x-data="galeria">
+      <div class="container-site">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div class="max-w-xl">
+            <p class="eyebrow">Portfólio</p>
+            <h2 id="portfolio-titulo" class="titulo-secao mt-3">Trabalhos recentes, <em>em cores</em>.</h2>
+          </div>
+          <p class="max-w-sm text-sm text-grafite-500">As "fotos" deste modelo são composições ilustrativas. No site real, cada quadro recebe uma foto do salão com a autorização da cliente.</p>
+        </div>
+
+        <ul class="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4" role="list">
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Loiro frio" data-categoria="Cabelo" x-on:click="abrir(0)" aria-label="Ampliar: Loiro frio, cabelo">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#F6E4E0"/>
+                <g fill="none" stroke-linecap="round">
+                  <path d="M90 60 C 60 200, 160 260, 110 440" stroke="#C9B79C" stroke-width="22"/>
+                  <path d="M160 40 C 130 200, 240 280, 180 460" stroke="#DCCCB2" stroke-width="18"/>
+                  <path d="M230 50 C 210 180, 310 300, 250 450" stroke="#A8946F" stroke-width="14"/>
+                  <path d="M300 70 C 280 200, 350 320, 310 440" stroke="#EADFCF" stroke-width="26"/>
+                </g>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Loiro frio <span class="text-grafite-500">· cabelo</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Ondas naturais" data-categoria="Cabelo" x-on:click="abrir(1)" aria-label="Ampliar: Ondas naturais, cabelo">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#F5EFE6"/>
+                <g fill="none" stroke="#45454D" stroke-linecap="round">
+                  <path d="M60 80 q 40 50 0 100 t 0 100 t 0 100" stroke-width="10"/>
+                  <path d="M150 60 q 40 50 0 100 t 0 100 t 0 100" stroke-width="14"/>
+                  <path d="M240 90 q 40 50 0 100 t 0 100 t 0 100" stroke-width="8"/>
+                  <path d="M330 70 q 40 50 0 100 t 0 100 t 0 100" stroke-width="12"/>
+                </g>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Ondas naturais <span class="text-grafite-500">· cabelo</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Nude cremoso" data-categoria="Unhas" x-on:click="abrir(2)" aria-label="Ampliar: Nude cremoso, unhas">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#FBF3F1"/>
+                <g fill="#E6BDB5">
+                  <rect x="60" y="230" width="46" height="170" rx="23"/>
+                  <rect x="124" y="180" width="46" height="220" rx="23"/>
+                  <rect x="188" y="150" width="46" height="250" rx="23"/>
+                  <rect x="252" y="175" width="46" height="225" rx="23"/>
+                  <rect x="316" y="240" width="40" height="160" rx="20"/>
+                </g>
+                <rect x="40" y="400" width="320" height="60" rx="30" fill="#EADFCF"/>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Nude cremoso <span class="text-grafite-500">· unhas</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Francesinha" data-categoria="Unhas" x-on:click="abrir(3)" aria-label="Ampliar: Francesinha, unhas">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#26262B"/>
+                <g fill="#FBF3F1">
+                  <rect x="60" y="230" width="46" height="170" rx="23"/>
+                  <rect x="124" y="180" width="46" height="220" rx="23"/>
+                  <rect x="188" y="150" width="46" height="250" rx="23"/>
+                  <rect x="252" y="175" width="46" height="225" rx="23"/>
+                  <rect x="316" y="240" width="40" height="160" rx="20"/>
+                </g>
+                <g fill="#D9A39A">
+                  <rect x="60" y="230" width="46" height="40" rx="20"/>
+                  <rect x="124" y="180" width="46" height="40" rx="20"/>
+                  <rect x="188" y="150" width="46" height="40" rx="20"/>
+                  <rect x="252" y="175" width="46" height="40" rx="20"/>
+                  <rect x="316" y="240" width="40" height="36" rx="18"/>
+                </g>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Francesinha <span class="text-grafite-500">· unhas</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Pele luminosa" data-categoria="Estética facial" x-on:click="abrir(4)" aria-label="Ampliar: Pele luminosa, estética facial">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <defs><radialGradient id="g-pele" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#FBF3F1"/><stop offset="1" stop-color="#D9A39A"/></radialGradient></defs>
+                <rect width="400" height="500" fill="url(#g-pele)"/>
+                <circle cx="200" cy="230" r="120" fill="#F6E4E0" opacity=".9"/>
+                <circle cx="160" cy="190" r="34" fill="#FBF3F1"/>
+                <path d="M120 330 C 170 380, 230 380, 280 330" fill="none" stroke="#9E5C53" stroke-width="6" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Pele luminosa <span class="text-grafite-500">· estética facial</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Sobrancelha desenhada" data-categoria="Estética facial" x-on:click="abrir(5)" aria-label="Ampliar: Sobrancelha desenhada, estética facial">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#EADFCF"/>
+                <path d="M60 230 C 120 150, 200 150, 260 200" fill="none" stroke="#26262B" stroke-width="22" stroke-linecap="round"/>
+                <path d="M60 230 C 120 150, 200 150, 260 200" fill="none" stroke="#45454D" stroke-width="10" stroke-linecap="round" transform="translate(80 110)"/>
+                <circle cx="320" cy="120" r="18" fill="#9E5C53"/>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Sobrancelha desenhada <span class="text-grafite-500">· estética facial</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Cera morna" data-categoria="Depilação" x-on:click="abrir(6)" aria-label="Ampliar: Cera morna, depilação">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#F1D8D2"/>
+                <path d="M60 330 C 40 220, 130 120, 250 130 C 360 140, 380 240, 320 310 C 260 380, 150 350, 120 400 C 100 440, 70 400, 60 330 Z" fill="#DCCCB2"/>
+                <path d="M150 300 C 180 240, 240 210, 300 220" fill="none" stroke="#FBF3F1" stroke-width="12" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Cera morna <span class="text-grafite-500">· depilação</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Ruivo acobreado" data-categoria="Cabelo" x-on:click="abrir(7)" aria-label="Ampliar: Ruivo acobreado, cabelo">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <defs><linearGradient id="g-ruivo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9A39A"/><stop offset="1" stop-color="#9E5C53"/></linearGradient></defs>
+                <rect width="400" height="500" fill="url(#g-ruivo)"/>
+                <g fill="none" stroke="#F5EFE6" stroke-linecap="round" opacity=".85">
+                  <path d="M80 40 C 40 200, 160 260, 100 460" stroke-width="10"/>
+                  <path d="M190 30 C 150 220, 260 280, 200 470" stroke-width="16"/>
+                  <path d="M310 50 C 270 210, 360 300, 300 450" stroke-width="8"/>
+                </g>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Ruivo acobreado <span class="text-grafite-500">· cabelo</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Vermelho clássico" data-categoria="Unhas" x-on:click="abrir(8)" aria-label="Ampliar: Vermelho clássico, unhas">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#F5EFE6"/>
+                <g fill="#9E5C53">
+                  <rect x="60" y="230" width="46" height="170" rx="23"/>
+                  <rect x="124" y="180" width="46" height="220" rx="23"/>
+                  <rect x="188" y="150" width="46" height="250" rx="23"/>
+                  <rect x="252" y="175" width="46" height="225" rx="23"/>
+                  <rect x="316" y="240" width="40" height="160" rx="20"/>
+                </g>
+                <g fill="#FBF3F1" opacity=".5">
+                  <rect x="72" y="245" width="8" height="60" rx="4"/>
+                  <rect x="136" y="195" width="8" height="70" rx="4"/>
+                  <rect x="200" y="165" width="8" height="80" rx="4"/>
+                  <rect x="264" y="190" width="8" height="70" rx="4"/>
+                  <rect x="326" y="255" width="8" height="55" rx="4"/>
+                </g>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Vermelho clássico <span class="text-grafite-500">· unhas</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Mechas contrastantes" data-categoria="Cabelo" x-on:click="abrir(9)" aria-label="Ampliar: Mechas contrastantes, cabelo">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#26262B"/>
+                <g fill="none" stroke-linecap="round">
+                  <path d="M70 40 C 40 200, 150 260, 90 460" stroke="#EADFCF" stroke-width="14"/>
+                  <path d="M150 30 C 120 220, 230 280, 170 470" stroke="#E6BDB5" stroke-width="10"/>
+                  <path d="M230 50 C 200 210, 300 300, 250 450" stroke="#EADFCF" stroke-width="18"/>
+                  <path d="M320 40 C 290 200, 380 280, 330 460" stroke="#E6BDB5" stroke-width="8"/>
+                </g>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Mechas contrastantes <span class="text-grafite-500">· cabelo</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Spa dos pés" data-categoria="Unhas" x-on:click="abrir(10)" aria-label="Ampliar: Spa dos pés, unhas">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#F6E4E0"/>
+                <g fill="none" stroke="#C9B79C" stroke-width="6">
+                  <circle cx="200" cy="260" r="40"/><circle cx="200" cy="260" r="80"/><circle cx="200" cy="260" r="120"/><circle cx="200" cy="260" r="160" opacity=".6"/>
+                </g>
+                <circle cx="200" cy="260" r="16" fill="#9E5C53"/>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Spa dos pés <span class="text-grafite-500">· unhas</span></p>
+          </li>
+          <li>
+            <button type="button" class="tile group aspect-[4/5]" data-galeria-item data-titulo="Glow pós-limpeza" data-categoria="Estética facial" x-on:click="abrir(11)" aria-label="Ampliar: Glow pós-limpeza, estética facial">
+              <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
+                <rect width="400" height="500" fill="#FAF7F1"/>
+                <path d="M50 380 C 30 260, 110 140, 240 150 C 360 160, 390 260, 330 330 C 270 400, 160 370, 130 420 C 110 460, 70 440, 50 380 Z" fill="#E6BDB5"/>
+                <path d="M120 300 C 160 240, 230 210, 300 220" fill="none" stroke="#FBF3F1" stroke-width="10" stroke-linecap="round"/>
+                <circle cx="310" cy="110" r="22" fill="#C9B79C"/>
+              </svg>
+            </button>
+            <p class="mt-2 text-sm font-medium text-grafite-900">Glow pós-limpeza <span class="text-grafite-500">· estética facial</span></p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Lightbox (dialog nativo, controlado pelo Alpine) -->
+      <!-- Largura também limitada pela altura da janela, para a figura 4:5 caber inteira com a legenda -->
+      <dialog x-ref="caixa" class="m-auto w-[min(100%_-_2rem,36rem,(100dvh_-_13rem)*0.8)] rounded-3xl border-0 bg-white p-0 text-grafite-900 shadow-tile backdrop:bg-grafite-950/75 backdrop:backdrop-blur-sm"
+              aria-labelledby="lightbox-titulo"
+              x-on:keydown.arrow-left.prevent="anterior()" x-on:keydown.arrow-right.prevent="proxima()"
+              x-on:click="cliqueFora($event)" x-on:close="aberta = false">
+        <div class="p-3 sm:p-4">
+          <figure x-ref="figura" class="tile aspect-[4/5] w-full bg-areia-100" aria-hidden="true"></figure>
+          <div class="mt-4 flex items-center justify-between gap-4 px-1 pb-1">
+            <div class="min-w-0">
+              <p class="eyebrow" x-text="item.categoria"></p>
+              <h3 id="lightbox-titulo" class="truncate font-display text-xl text-grafite-900" x-text="item.titulo"></h3>
+              <p class="text-xs text-grafite-500">Composição ilustrativa · exemplo</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" class="btn-icone" x-on:click="anterior()" aria-label="Anterior">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <p class="min-w-[3.5rem] text-center text-sm tabular-nums text-grafite-500" aria-live="polite" x-text="(atual + 1) + ' / ' + itens.length"></p>
+              <button type="button" class="btn-icone" x-on:click="proxima()" aria-label="Próxima">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn-icone absolute right-3 top-3 shadow-suave" x-ref="fechar" x-on:click="fechar()" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </dialog>
+    </section>
+
+    <!-- Profissionais -->
+    <section id="equipe" class="secao bg-areia-50" aria-labelledby="equipe-titulo">
+      <div class="container-site">
+        <div class="max-w-xl">
+          <p class="eyebrow">Equipe</p>
+          <h2 id="equipe-titulo" class="titulo-secao mt-3">Quem está <em>do outro lado</em> da cadeira.</h2>
+          <p class="mt-4 text-grafite-500">Três profissionais fixas. Você escolhe com quem quer marcar, e ela acompanha você nas próximas visitas.</p>
+        </div>
+
+        <ul class="mt-10 grid gap-5 sm:grid-cols-3" role="list">
+          <li class="rounded-2xl bg-white p-6 shadow-suave">
+            <svg class="h-20 w-20 rounded-full" viewBox="0 0 96 96" role="img" aria-label="Avatar genérico">
+              <circle cx="48" cy="48" r="48" fill="#F1D8D2"/><circle cx="48" cy="38" r="16" fill="#26262B"/><path d="M16 92c4-20 18-28 32-28s28 8 32 28" fill="#26262B"/>
+            </svg>
+            <h3 class="mt-5 font-display text-2xl text-grafite-900">Nome Exemplo</h3>
+            <p class="mt-1 text-sm font-semibold text-rose-800">Cabelo: cortes e coloração</p>
+            <p class="mt-3 text-sm leading-relaxed text-grafite-500">Começa toda coloração com teste de mecha. Prefere mudanças que envelhecem bem a resultados de um dia.</p>
+          </li>
+          <li class="rounded-2xl bg-white p-6 shadow-suave">
+            <svg class="h-20 w-20 rounded-full" viewBox="0 0 96 96" role="img" aria-label="Avatar genérico">
+              <circle cx="48" cy="48" r="48" fill="#EADFCF"/><circle cx="48" cy="38" r="16" fill="#45454D"/><path d="M16 92c4-20 18-28 32-28s28 8 32 28" fill="#45454D"/>
+            </svg>
+            <h3 class="mt-5 font-display text-2xl text-grafite-900">Nome Exemplo</h3>
+            <p class="mt-1 text-sm font-semibold text-rose-800">Unhas e spa</p>
+            <p class="mt-3 text-sm leading-relaxed text-grafite-500">Esmaltação em gel sem lixar demais a unha natural. Se a unha pede descanso, ela avisa.</p>
+          </li>
+          <li class="rounded-2xl bg-white p-6 shadow-suave">
+            <svg class="h-20 w-20 rounded-full" viewBox="0 0 96 96" role="img" aria-label="Avatar genérico">
+              <circle cx="48" cy="48" r="48" fill="#E6BDB5"/><circle cx="48" cy="38" r="16" fill="#26262B"/><path d="M16 92c4-20 18-28 32-28s28 8 32 28" fill="#26262B"/>
+            </svg>
+            <h3 class="mt-5 font-display text-2xl text-grafite-900">Nome Exemplo</h3>
+            <p class="mt-1 text-sm font-semibold text-rose-800">Estética facial e depilação</p>
+            <p class="mt-3 text-sm leading-relaxed text-grafite-500">Avalia a pele antes de qualquer protocolo. Limpeza de pele sem marcas no dia seguinte.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Pacotes -->
+    <section id="pacotes" class="secao bg-white" aria-labelledby="pacotes-titulo">
+      <div class="container-site">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div class="max-w-xl">
+            <p class="eyebrow">Pacotes e promoções</p>
+            <h2 id="pacotes-titulo" class="titulo-secao mt-3">Combine serviços e <em>pague menos</em>.</h2>
+          </div>
+          <p class="chip">valores de exemplo</p>
+        </div>
+
+        <ul class="mt-10 grid gap-5 lg:grid-cols-3" role="list">
+          <li class="flex flex-col rounded-2xl border border-grafite-900/10 p-6">
+            <p class="eyebrow">Para o dia a dia</p>
+            <h3 class="mt-3 font-display text-2xl text-grafite-900">Cabelo + unhas</h3>
+            <p class="mt-2 text-sm text-grafite-500">Corte ou escova, com manicure no mesmo horário. Duas profissionais, uma cadeira.</p>
+            <p class="mt-6 font-display text-3xl text-grafite-900">R$ --<span class="ml-1 font-sans text-sm font-normal text-grafite-500">a partir de</span></p>
+            <p class="mt-6"><a class="btn btn-secundario w-full" href="#agendamento">Agendar pacote</a></p>
+          </li>
+          <li class="flex flex-col rounded-2xl bg-grafite-900 p-6 text-white">
+            <p class="eyebrow text-rose-300">Mais pedido</p>
+            <h3 class="mt-3 font-display text-2xl">Dia da noiva e madrinhas</h3>
+            <p class="mt-2 text-sm text-grafite-300">Teste de penteado e maquiagem, com o salão reservado para o grupo na manhã do evento.</p>
+            <p class="mt-6 font-display text-3xl">R$ --<span class="ml-1 font-sans text-sm font-normal text-grafite-300">por pessoa</span></p>
+            <p class="mt-6"><a class="btn btn-claro w-full" href="#agendamento">Pedir orçamento</a></p>
+          </li>
+          <li class="flex flex-col rounded-2xl border border-grafite-900/10 p-6">
+            <p class="eyebrow">Mensal</p>
+            <h3 class="mt-3 font-display text-2xl text-grafite-900">Assinatura de unhas</h3>
+            <p class="mt-2 text-sm text-grafite-500">Manicure e pedicure a cada 15 dias, com horário fixo reservado no seu nome.</p>
+            <p class="mt-6 font-display text-3xl text-grafite-900">R$ --<span class="ml-1 font-sans text-sm font-normal text-grafite-500">por mês</span></p>
+            <p class="mt-6"><a class="btn btn-secundario w-full" href="#agendamento">Quero assinar</a></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Agendamento em etapas -->
+    <section id="agendamento" class="secao bg-rose-50" aria-labelledby="agendamento-titulo" x-data="agendamento">
+      <div class="container-site">
+        <div class="max-w-xl">
+          <p class="eyebrow">Agendamento</p>
+          <h2 id="agendamento-titulo" class="titulo-secao mt-3">Marque em <em>cinco passos</em>.</h2>
+          <p class="mt-3 text-sm font-medium text-rose-800" x-show="!temApi">Demonstração sem servidor: a mensagem abre no WhatsApp.</p>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-12 lg:gap-8">
+          <!-- Formulário -->
+          <form class="rounded-3xl bg-white p-5 shadow-suave sm:p-8 lg:col-span-8" x-on:submit.prevent="enviar()" novalidate x-show="!enviado">
+            <!-- Progresso: sequência real, por isso numerada -->
+            <ol class="flex flex-wrap gap-2" aria-label="Etapas do agendamento">
+              <template x-for="(nome, i) in etapas" x-bind:key="nome">
+                <li>
+                  <button type="button"
+                          class="inline-flex min-h-[2.25rem] items-center gap-2 rounded-full border px-3 text-xs font-semibold transition-colors disabled:cursor-not-allowed"
+                          x-bind:class="etapa === i + 1 ? 'border-grafite-900 bg-grafite-900 text-white' : (i + 1 <= alcancada ? 'border-grafite-900/20 bg-white text-grafite-900 hover:border-grafite-900' : 'border-transparent bg-areia-100 text-grafite-500')"
+                          x-bind:aria-current="etapa === i + 1 ? 'step' : null" x-bind:disabled="i + 1 > alcancada"
+                          x-on:click="irPara(i + 1)">
+                    <span class="tabular-nums" x-text="i + 1"></span><span x-text="nome"></span>
+                  </button>
+                </li>
+              </template>
+            </ol>
+
+            <h3 class="mt-8 font-display text-2xl text-grafite-900 outline-none" x-ref="titulo" tabindex="-1" x-text="(etapa) + '. ' + etapas[etapa - 1]"></h3>
+
+            <!-- 1 · Serviço -->
+            <div x-show="etapa === 1" x-cloak>
+              <div class="mt-4 flex flex-wrap gap-2" role="group" aria-label="Categoria">
+                <template x-for="c in categorias" x-bind:key="c.id">
+                  <button type="button" class="rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors"
+                          x-bind:class="categoria === c.id ? 'border-rose-700 bg-rose-100 text-rose-900' : 'border-grafite-200 text-grafite-700 hover:border-grafite-900'"
+                          x-bind:aria-pressed="categoria === c.id ? 'true' : 'false'" x-on:click="categoria = c.id" x-text="c.nome"></button>
+                </template>
+              </div>
+              <div class="mt-4 grid gap-2 sm:grid-cols-2" role="group" aria-label="Serviço">
+                <template x-for="s in servicos" x-bind:key="s.id">
+                  <button type="button" class="opcao" data-servico-opcao data-foco-erro="servico"
+                          x-bind:aria-pressed="servico && servico.id === s.id ? 'true' : 'false'" x-on:click="escolher(s)">
+                    <span class="block font-semibold" x-text="s.nome"></span>
+                    <span class="mt-0.5 block text-xs opacity-80" x-text="s.duracao + ' min · a partir de R$ --'"></span>
+                  </button>
+                </template>
+              </div>
+              <p class="erro" x-show="erros.servico" x-text="erros.servico" role="alert"></p>
+            </div>
+
+            <!-- 2 · Profissional -->
+            <div x-show="etapa === 2" x-cloak>
+              <div class="mt-4 grid gap-2 sm:grid-cols-2" role="group" aria-label="Profissional">
+                <template x-for="p in profissionais" x-bind:key="p.id">
+                  <button type="button" class="opcao" data-prof-opcao data-foco-erro="profissional"
+                          x-bind:aria-pressed="profissional === p.id ? 'true' : 'false'" x-on:click="profissional = p.id; delete erros.profissional">
+                    <span class="block font-semibold" x-text="p.nome"></span>
+                    <span class="mt-0.5 block text-xs opacity-80" x-text="p.area"></span>
+                  </button>
+                </template>
+              </div>
+              <p class="erro" x-show="erros.profissional" x-text="erros.profissional" role="alert"></p>
+            </div>
+
+            <!-- 3 · Data -->
+            <div x-show="etapa === 3" x-cloak>
+              <div class="mt-4 max-w-xs">
+                <label class="rotulo" for="ag-data">Qual dia?</label>
+                <input id="ag-data" class="campo" type="date" x-model="data" x-bind:min="minData" data-foco-erro="data"
+                       x-bind:aria-invalid="erros.data ? 'true' : 'false'" aria-describedby="ag-data-erro" required>
+                <p class="erro" id="ag-data-erro" x-show="erros.data" x-text="erros.data" role="alert"></p>
+              </div>
+              <p class="mt-3 text-sm text-grafite-500">Seg a sex <span data-modelo="horarios.seg_sex">09:00–19:00</span> · sáb <span data-modelo="horarios.sab">09:00–17:00</span> · dom <span data-modelo="horarios.dom">fechado</span></p>
+            </div>
+
+            <!-- 4 · Horário -->
+            <div x-show="etapa === 4" x-cloak>
+              <p class="mt-2 text-sm text-grafite-500">Horários para <strong class="text-grafite-900" x-text="dataBR"></strong><span x-show="servico"> · <span x-text="servico && servico.nome"></span></span></p>
+              <p class="mt-3 text-sm text-grafite-500" x-show="carregando">Carregando horários…</p>
+              <p class="mt-3 text-sm font-medium text-rose-800" x-show="avisoSlots" x-text="avisoSlots"></p>
+              <div class="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6" role="group" aria-label="Horário" x-show="slots.length">
+                <template x-for="s in slots" x-bind:key="s">
+                  <button type="button" class="opcao px-2 text-center font-semibold tabular-nums" data-slot data-foco-erro="hora"
+                          x-bind:aria-pressed="hora === s ? 'true' : 'false'" x-on:click="hora = s; delete erros.hora" x-text="s"></button>
+                </template>
+              </div>
+              <p class="erro" x-show="erros.hora" x-text="erros.hora" role="alert"></p>
+            </div>
+
+            <!-- 5 · Seus dados -->
+            <div x-show="etapa === 5" x-cloak>
+              <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="rotulo" for="ag-nome">Nome</label>
+                  <input id="ag-nome" class="campo" type="text" autocomplete="name" x-model="nome" data-foco-erro="nome"
+                         x-bind:aria-invalid="erros.nome ? 'true' : 'false'" aria-describedby="ag-nome-erro" x-on:input="delete erros.nome" required>
+                  <p class="erro" id="ag-nome-erro" x-show="erros.nome" x-text="erros.nome"></p>
+                </div>
+                <div>
+                  <label class="rotulo" for="ag-telefone">Telefone com DDD</label>
+                  <input id="ag-telefone" class="campo" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" x-model="telefone" data-foco-erro="telefone"
+                         x-bind:aria-invalid="erros.telefone ? 'true' : 'false'" aria-describedby="ag-telefone-erro" x-on:input="delete erros.telefone" required>
+                  <p class="erro" id="ag-telefone-erro" x-show="erros.telefone" x-text="erros.telefone"></p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <label class="flex items-start gap-3 text-sm text-grafite-700">
+                  <input class="mt-0.5 h-5 w-5 shrink-0 rounded border-grafite-300 accent-grafite-900" type="checkbox" x-model="consentimento" data-foco-erro="consentimento"
+                         x-bind:aria-invalid="erros.consentimento ? 'true' : 'false'" aria-describedby="ag-consentimento-erro" x-on:change="delete erros.consentimento" required>
+                  <span>Autorizo o uso do meu nome e telefone apenas para confirmar este horário (LGPD).</span>
+                </label>
+                <p class="erro" id="ag-consentimento-erro" x-show="erros.consentimento" x-text="erros.consentimento"></p>
+              </div>
+              <div class="honeypot" aria-hidden="true">
+                <label for="ag-site">Deixe em branco</label>
+                <input id="ag-site" type="text" name="site" tabindex="-1" autocomplete="off" x-model="site">
+              </div>
+              <p class="mt-4 rounded-xl bg-rose-100 px-4 py-3 text-sm font-medium text-rose-900" x-show="statusErro" x-text="statusErro" role="alert"></p>
+            </div>
+
+            <!-- Navegação -->
+            <div class="mt-8 flex flex-wrap items-center gap-3 border-t border-grafite-900/10 pt-6">
+              <button type="button" class="btn btn-secundario" x-on:click="voltar()" x-show="etapa > 1">Voltar</button>
+              <button type="button" class="btn btn-primario" data-avancar x-on:click="avancar()" x-show="etapa < 5">Continuar</button>
+              <button type="submit" class="btn btn-primario" x-show="etapa === 5" x-bind:disabled="enviando" x-text="enviando ? 'Enviando…' : 'Confirmar horário'">Confirmar horário</button>
+              <p class="ml-auto text-xs text-grafite-500" x-text="'Etapa ' + etapa + ' de ' + etapas.length"></p>
+            </div>
+          </form>
+
+          <!-- Sucesso -->
+          <div class="rounded-3xl bg-white p-8 text-center shadow-suave lg:col-span-8" x-show="enviado" x-cloak role="status">
+            <svg class="mx-auto h-16 w-16" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="22" fill="#F1D8D2"/><path d="M14 25l7 7 13-14" fill="none" stroke="#9E5C53" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="mt-4 font-display text-2xl text-grafite-900" x-text="enviado && enviado.titulo"></h3>
+            <p class="mx-auto mt-2 max-w-md text-grafite-500" x-text="enviado && enviado.texto"></p>
+            <p class="mt-4" x-show="enviado && enviado.link"><a class="font-semibold text-rose-800 underline underline-offset-4" x-bind:href="enviado && enviado.link" target="_blank" rel="noopener">Abrir a mensagem no WhatsApp</a></p>
+            <button type="button" class="btn btn-secundario mt-6" x-on:click="reiniciar()">Fazer outro agendamento</button>
+          </div>
+
+          <!-- Resumo -->
+          <aside class="rounded-3xl border border-rose-200 bg-white/60 p-6 lg:sticky lg:top-24 lg:col-span-4 lg:self-start" aria-labelledby="resumo-titulo">
+            <p class="eyebrow" id="resumo-titulo">Resumo</p>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div class="flex justify-between gap-4 border-b border-grafite-900/10 pb-3">
+                <dt class="text-grafite-500">Serviço</dt>
+                <dd class="text-right font-semibold text-grafite-900" x-text="servico ? servico.nome + ' · ' + servico.duracao + ' min' : '—'"></dd>
+              </div>
+              <div class="flex justify-between gap-4 border-b border-grafite-900/10 pb-3">
+                <dt class="text-grafite-500">Profissional</dt>
+                <dd class="text-right font-semibold text-grafite-900" x-text="nomeProfissional || '—'"></dd>
+              </div>
+              <div class="flex justify-between gap-4 border-b border-grafite-900/10 pb-3">
+                <dt class="text-grafite-500">Data</dt>
+                <dd class="text-right font-semibold text-grafite-900" x-text="data ? dataBR : '—'"></dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-grafite-500">Horário</dt>
+                <dd class="text-right font-semibold text-grafite-900" x-text="hora || '—'"></dd>
+              </div>
+            </dl>
+            <p class="mt-5 text-xs leading-relaxed text-grafite-500">Preferir falar com alguém? <a class="font-semibold text-rose-800 underline underline-offset-4" data-modelo-href="whatsapp" data-whatsapp href="https://wa.me/5500000000000" target="_blank" rel="noopener">Chame no WhatsApp</a> e a gente marca por lá.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Localização -->
+    <section id="onde" class="secao bg-white" aria-labelledby="onde-titulo">
+      <div class="container-site">
+        <div class="max-w-xl">
+          <p class="eyebrow">Onde estamos</p>
+          <h2 id="onde-titulo" class="titulo-secao mt-3">Perto de casa, <em>sem estacionamento pago</em>.</h2>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-12 lg:gap-8">
+          <div class="mapa-fundo relative overflow-hidden rounded-3xl border border-grafite-900/10 lg:col-span-7 lg:min-h-[24rem]">
+            <p class="absolute inset-0 grid place-items-center text-sm font-semibold text-rose-800" aria-hidden="true">Mapa do bairro · OpenStreetMap</p>
+            <iframe class="relative block aspect-[4/3] h-full w-full border-0 lg:aspect-auto" data-mapa title="Mapa com a localização do salão (OpenStreetMap)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-48.498%2C-1.46%2C-48.482%2C-1.45&amp;layer=mapnik&amp;marker=-1.455%2C-48.49"></iframe>
+          </div>
+          <div class="flex flex-col gap-5 rounded-3xl bg-areia-50 p-6 lg:col-span-5 sm:p-8">
+            <div>
+              <h3 class="font-display text-2xl text-grafite-900" data-modelo="nome">Ateliê Belle</h3>
+              <address class="mt-2 not-italic leading-relaxed text-grafite-700">
+                <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span><br>
+                <a class="font-semibold text-grafite-900 underline underline-offset-4" data-modelo-href="telefone" href="tel:+5500000000000"><span data-modelo="telefone">(00) 00000-0000</span></a><br>
+                <a class="font-semibold text-grafite-900 underline underline-offset-4" data-modelo-href="email" href="mailto:contato@exemplo.com.br"><span data-modelo="email">contato@exemplo.com.br</span></a>
+              </address>
+            </div>
+            <table class="w-full text-sm">
+              <caption class="sr-only">Horários de atendimento</caption>
+              <tbody class="divide-y divide-grafite-900/10">
+                <tr><th scope="row" class="py-2.5 text-left font-medium text-grafite-500">Segunda a sexta</th><td class="py-2.5 text-right font-semibold text-grafite-900" data-modelo="horarios.seg_sex">09:00–19:00</td></tr>
+                <tr><th scope="row" class="py-2.5 text-left font-medium text-grafite-500">Sábado</th><td class="py-2.5 text-right font-semibold text-grafite-900" data-modelo="horarios.sab">09:00–17:00</td></tr>
+                <tr><th scope="row" class="py-2.5 text-left font-medium text-grafite-500">Domingo</th><td class="py-2.5 text-right font-semibold text-grafite-900" data-modelo="horarios.dom">fechado</td></tr>
+              </tbody>
+            </table>
+            <div class="mt-auto flex flex-wrap gap-2.5">
+              <a class="btn btn-primario" href="#agendamento">Agendar horário</a>
+              <a class="btn btn-secundario" data-modelo-href="rota" href="https://www.openstreetmap.org/directions?to=-1.455%2C-48.49" target="_blank" rel="noopener">Como chegar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-grafite-950 text-grafite-300">
+    <div class="container-site grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <p class="font-display text-2xl italic text-white" data-modelo="nome">Ateliê Belle</p>
+        <p class="mt-2 text-sm" data-modelo="slogan">Cabelo, unhas e pele, com hora marcada</p>
+      </div>
+      <div>
+        <h2 class="eyebrow text-rose-300">Contato</h2>
+        <p class="mt-3 text-sm" data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</p>
+        <p class="mt-1.5 text-sm"><a class="text-white underline-offset-4 hover:underline" data-modelo-href="telefone" href="tel:+5500000000000"><span data-modelo="telefone">(00) 00000-0000</span></a></p>
+        <p class="mt-1.5 text-sm"><a class="text-white underline-offset-4 hover:underline" data-modelo-href="email" href="mailto:contato@exemplo.com.br"><span data-modelo="email">contato@exemplo.com.br</span></a></p>
+      </div>
+      <div>
+        <h2 class="eyebrow text-rose-300">Navegação</h2>
+        <ul class="mt-3 space-y-1.5 text-sm">
+          <li><a class="text-white underline-offset-4 hover:underline" href="#servicos">Serviços</a></li>
+          <li><a class="text-white underline-offset-4 hover:underline" href="#portfolio">Portfólio</a></li>
+          <li><a class="text-white underline-offset-4 hover:underline" href="#pacotes">Pacotes</a></li>
+          <li><a class="text-white underline-offset-4 hover:underline" href="#agendamento">Agendar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="eyebrow text-rose-300">Legal</h2>
+        <p class="mt-3 text-sm">CNPJ <span data-modelo="cnpj">00.000.000/0001-00</span></p>
+        <p class="mt-1.5 text-sm"><a class="text-white underline-offset-4 hover:underline" href="#inicio">Política de privacidade</a></p>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <p class="container-site py-5 text-xs text-grafite-300">Site modelo com dados fictícios. Nenhuma pessoa, empresa ou trabalho mostrado aqui é real.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[
+  {"slug": "galeria", "paginas": ["index.html"]},
+  {"slug": "clinica-odontologica", "paginas": ["modelos/clinica-odontologica/index.html"]},
+  {"slug": "estetica-salao", "paginas": ["modelos/estetica-salao/index.html"]},
+  {"slug": "restaurante-delivery", "paginas": ["modelos/restaurante-delivery/index.html"]},
+  {"slug": "imobiliaria", "paginas": ["modelos/imobiliaria/index.html"]},
+  {"slug": "advocacia", "paginas": ["modelos/advocacia/site/index.html", "modelos/advocacia/site/blog/index.html"]},
+  {"slug": "servicos-residenciais", "paginas": ["modelos/servicos-residenciais/index.html"]}
+]

@@ -1,0 +1,17 @@
+# gerado pelo build do modelo multipágina (o workflow do Pages reconstrói)
+modelos/advocacia/site/
+
+# capturas de página inteira (só para revisão; a galeria usa as miniaturas)
+docs/img/completo/
+
+# backend
+backend/dados/
+backend/.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# node (compilação do Tailwind no modelo de estética)
+node_modules/

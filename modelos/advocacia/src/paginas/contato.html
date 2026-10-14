@@ -1,0 +1,117 @@
+---
+titulo: Contato · Andrade & Lima Advocacia
+descricao: Agende uma consulta com o escritório Andrade & Lima Advocacia por formulário, telefone, WhatsApp ou e-mail. Endereço, horários de atendimento e mapa.
+---
+<section class="cabecalho-pagina">
+  <div class="secao-interno">
+    <p class="olho">Contato</p>
+    <h1>Agende uma conversa</h1>
+    <p class="cabecalho-texto">Conte em poucas linhas o que aconteceu. Retornamos em horário comercial para combinar a consulta, presencial ou por videochamada.</p>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="secao-interno contato-grade">
+
+    <div class="contato-formulario">
+      <form class="formulario" id="form-contato" novalidate aria-describedby="form-nota">
+        <div class="campo">
+          <label for="nome">Nome completo</label>
+          <input id="nome" name="nome" type="text" autocomplete="name" required minlength="3" aria-describedby="erro-nome">
+          <p class="campo-erro" id="erro-nome" aria-live="polite"></p>
+        </div>
+        <div class="campo-linha">
+          <div class="campo">
+            <label for="telefone">Telefone com DDD</label>
+            <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(00) 00000-0000" aria-describedby="erro-telefone">
+            <p class="campo-erro" id="erro-telefone" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="email">E-mail <span class="opcional">(opcional)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" aria-describedby="erro-email">
+            <p class="campo-erro" id="erro-email" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="area">Área relacionada</label>
+          <select id="area" name="area" required aria-describedby="erro-area">
+            <option value="">Selecione…</option>
+            <option value="civel">Direito Cível</option>
+            <option value="trabalhista">Direito do Trabalho</option>
+            <option value="familia">Família e Sucessões</option>
+            <option value="consumidor">Direito do Consumidor</option>
+            <option value="empresarial">Direito Empresarial</option>
+            <option value="previdenciario">Direito Previdenciário</option>
+            <option value="outra">Não sei / outra</option>
+          </select>
+          <p class="campo-erro" id="erro-area" aria-live="polite"></p>
+        </div>
+        <div class="campo">
+          <label for="mensagem">Resumo do caso</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required minlength="20" aria-describedby="dica-mensagem erro-mensagem"></textarea>
+          <p class="campo-dica" id="dica-mensagem">Não é preciso detalhar tudo agora: duas ou três frases bastam para a primeira conversa.</p>
+          <p class="campo-erro" id="erro-mensagem" aria-live="polite"></p>
+        </div>
+        <div class="campo consentimento">
+          <input id="consentimento" name="consentimento" type="checkbox" required aria-describedby="erro-consentimento">
+          <label for="consentimento">Autorizo o uso destes dados apenas para o retorno deste contato, conforme a Lei Geral de Proteção de Dados.</label>
+          <p class="campo-erro" id="erro-consentimento" aria-live="polite"></p>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="site">Site</label>
+          <input id="site" name="site" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="form-aviso" data-aviso-sem-api hidden>Demonstração sem servidor: a mensagem abre no WhatsApp.</p>
+        <p class="form-erro" data-form-erro role="alert" hidden></p>
+        <div class="form-acoes">
+          <button class="botao botao-tinta" type="submit">Enviar mensagem</button>
+          <p id="form-nota" class="form-nota">Sigilo profissional desde a primeira mensagem.</p>
+        </div>
+      </form>
+
+      <div class="formulario-sucesso" data-sucesso hidden tabindex="-1">
+        <p class="olho">Mensagem enviada</p>
+        <h2>Recebemos o seu contato</h2>
+        <p data-sucesso-texto></p>
+        <a class="botao botao-tinta" data-sucesso-link href="#" hidden>Abrir WhatsApp</a>
+      </div>
+    </div>
+
+    <aside class="contato-info" aria-label="Endereço e horários">
+      <h2 class="contato-info-titulo">Onde estamos</h2>
+      <dl class="contato-dados">
+        <div>
+          <dt>Endereço</dt>
+          <dd data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</dd>
+        </div>
+        <div>
+          <dt>Telefone</dt>
+          <dd><a data-modelo-link="telefone" href="tel:+550000000000"><span data-modelo="telefone">(00) 00000-0000</span></a></dd>
+        </div>
+        <div>
+          <dt>WhatsApp</dt>
+          <dd><a data-modelo-link="whatsapp" data-whatsapp-texto="Olá! Gostaria de agendar uma consulta com o escritório." href="#" rel="noopener" target="_blank">Enviar mensagem</a></dd>
+        </div>
+        <div>
+          <dt>E-mail</dt>
+          <dd><a data-modelo-link="email" href="mailto:contato@exemplo.com.br"><span data-modelo="email">contato@exemplo.com.br</span></a></dd>
+        </div>
+        <div>
+          <dt>Horários</dt>
+          <dd>
+            <dl class="horarios">
+              <div><dt>Segunda a sexta</dt><dd data-modelo="horarios.seg_sex">09:00–18:00</dd></div>
+              <div><dt>Sábado</dt><dd data-modelo="horarios.sab">mediante agendamento</dd></div>
+              <div><dt>Domingo</dt><dd data-modelo="horarios.dom">fechado</dd></div>
+            </dl>
+          </dd>
+        </div>
+      </dl>
+      <div class="mapa">
+        <iframe data-modelo-mapa title="Mapa com a localização do escritório" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="mapa-nota"><a data-modelo-link="mapa" href="https://www.openstreetmap.org/" rel="noopener" target="_blank">Abrir no OpenStreetMap</a> · Estacionamento conveniado ao lado.</p>
+    </aside>
+
+  </div>
+</section>

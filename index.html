@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modelos de sites para negócios locais · TN Costa Tecnologia</title>
+  <meta name="description" content="Seis modelos de site para nichos procurados (clínica, estética, restaurante, imobiliária, advocacia, serviços residenciais), cada um com uma técnica diferente, backend com testes e integrações. Demonstrações ao vivo e código aberto.">
+  <link rel="canonical" href="https://tncostatec.github.io/modelos-de-sites/">
+  <meta property="og:title" content="Modelos de sites para negócios locais">
+  <meta property="og:description" content="Seis nichos, seis técnicas: estático acessível, Tailwind + Alpine, PWA, catálogo com mapa, gerador estático em Python e landing de conversão. Backend FastAPI com testes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tncostatec.github.io/modelos-de-sites/">
+  <link rel="stylesheet" href="assets/galeria.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Modelos de sites para negócios locais","url":"https://tncostatec.github.io/modelos-de-sites/","author":{"@type":"Organization","name":"TN Costa Tecnologia","url":"https://www.tncostatecnologia.com.br/"}}</script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="wrap topo__in">
+      <p class="marca"><span class="marca__sigla" aria-hidden="true">TN</span> Modelos de sites</p>
+      <nav aria-label="Seções">
+        <a href="#modelos">Modelos</a>
+        <a href="#backend">Backend</a>
+        <a href="#verificacao">Verificação</a>
+        <a href="https://github.com/tncostatec/modelos-de-sites">Código</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__sobre">Seis nichos · seis técnicas · um backend</p>
+        <h1>Sites para negócios locais, feitos como software.</h1>
+        <p class="hero__texto">Cada modelo abaixo atende um nicho procurado e demonstra, de propósito, uma abordagem
+          diferente: HTML moderno sem framework, Tailwind compilado com Alpine, PWA instalável, catálogo com estado na URL e
+          mapa, gerador estático em Python e landing de conversão com formulário em etapas. Todos passam pelo mesmo
+          controle: layout em duas larguras, console limpo, acessibilidade e SEO básicos, em CI.</p>
+        <p class="hero__aviso">Nomes, telefones e endereços são fictícios. Nas demonstrações o backend está desligado:
+          os formulários abrem o WhatsApp com a mensagem montada.</p>
+      </div>
+    </section>
+
+    <section id="modelos" class="modelos">
+      <div class="wrap">
+        <h2>Os modelos</h2>
+        <ul class="cards">
+          <li class="card">
+            <a class="card__img" href="modelos/clinica-odontologica/"><img src="docs/img/clinica-odontologica-thumb.jpg" alt="Captura do modelo de clínica odontológica" loading="lazy"></a>
+            <div class="card__corpo">
+              <p class="card__nicho">Clínica odontológica</p>
+              <h3>Vanilla moderno</h3>
+              <p>HTML semântico, CSS com custom properties e <code>color-mix()</code>, <code>&lt;dialog&gt;</code> nativo para o agendamento, <code>&lt;details&gt;</code> no FAQ, horários livres vindos da API.</p>
+              <p class="tags"><span>HTML</span><span>CSS moderno</span><span>JS sem framework</span><span>Agenda via API</span></p>
+              <p class="acoes"><a class="btn" href="modelos/clinica-odontologica/">Ver demonstração</a><a href="https://github.com/tncostatec/modelos-de-sites/tree/main/modelos/clinica-odontologica">Código e README</a></p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="card__img" href="modelos/estetica-salao/"><img src="docs/img/estetica-salao-thumb.jpg" alt="Captura do modelo de salão de estética" loading="lazy"></a>
+            <div class="card__corpo">
+              <p class="card__nicho">Salão de beleza e estética</p>
+              <h3>Tailwind compilado + Alpine.js</h3>
+              <p>Utilitários compilados localmente (sem CDN de desenvolvimento), abas de serviços, galeria com lightbox e agendamento em etapas declarado com Alpine.</p>
+              <p class="tags"><span>Tailwind CSS</span><span>Alpine.js</span><span>Stepper</span><span>Agenda via API</span></p>
+              <p class="acoes"><a class="btn" href="modelos/estetica-salao/">Ver demonstração</a><a href="https://github.com/tncostatec/modelos-de-sites/tree/main/modelos/estetica-salao">Código e README</a></p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="card__img" href="modelos/restaurante-delivery/"><img src="docs/img/restaurante-delivery-thumb.jpg" alt="Captura do modelo de restaurante com delivery" loading="lazy"></a>
+            <div class="card__corpo">
+              <p class="card__nicho">Restaurante com delivery</p>
+              <h3>PWA instalável</h3>
+              <p>Manifest e service worker com cache do shell e cardápio em JSON, carrinho em <code>localStorage</code>, status aberto/fechado em tempo real e pedido montado para o WhatsApp.</p>
+              <p class="tags"><span>PWA</span><span>Service worker</span><span>Cardápio em JSON</span><span>Pedido via WhatsApp</span></p>
+              <p class="acoes"><a class="btn" href="modelos/restaurante-delivery/">Ver demonstração</a><a href="https://github.com/tncostatec/modelos-de-sites/tree/main/modelos/restaurante-delivery">Código e README</a></p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="card__img" href="modelos/imobiliaria/"><img src="docs/img/imobiliaria-thumb.jpg" alt="Captura do modelo de imobiliária" loading="lazy"></a>
+            <div class="card__corpo">
+              <p class="card__nicho">Imobiliária</p>
+              <h3>Catálogo com estado na URL e mapa</h3>
+              <p>Filtros compartilháveis por <code>URLSearchParams</code>, detalhe por rota <code>#/imovel/id</code>, favoritos, mapa Leaflet com os resultados e formulário de interesse.</p>
+              <p class="tags"><span>Leaflet</span><span>Rota por hash</span><span>Filtros na URL</span><span>Lead via API</span></p>
+              <p class="acoes"><a class="btn" href="modelos/imobiliaria/">Ver demonstração</a><a href="https://github.com/tncostatec/modelos-de-sites/tree/main/modelos/imobiliaria">Código e README</a></p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="card__img" href="modelos/advocacia/site/"><img src="docs/img/advocacia-thumb.jpg" alt="Captura do modelo de escritório de advocacia" loading="lazy"></a>
+            <div class="card__corpo">
+              <p class="card__nicho">Escritório de advocacia</p>
+              <h3>Site multipágina gerado em Python</h3>
+              <p>Gerador estático próprio, sem dependências: layout comum, páginas, blog em Markdown, sitemap, canonical e JSON-LD por página. Conteúdo dentro das regras de publicidade da OAB.</p>
+              <p class="tags"><span>SSG em Python</span><span>Markdown</span><span>Sitemap</span><span>Multipágina</span></p>
+              <p class="acoes"><a class="btn" href="modelos/advocacia/site/">Ver demonstração</a><a href="https://github.com/tncostatec/modelos-de-sites/tree/main/modelos/advocacia">Código e README</a></p>
+            </div>
+          </li>
+          <li class="card">
+            <a class="card__img" href="modelos/servicos-residenciais/"><img src="docs/img/servicos-residenciais-thumb.jpg" alt="Captura do modelo de serviços residenciais" loading="lazy"></a>
+            <div class="card__corpo">
+              <p class="card__nicho">Reformas e reparos residenciais</p>
+              <h3>Landing de conversão</h3>
+              <p>Orçamento em três etapas com validação por passo, rascunho na sessão, honeypot e time-trap; barra fixa de contato no celular; comparador antes/depois acessível.</p>
+              <p class="tags"><span>Formulário em etapas</span><span>Anti-spam</span><span>Mobile-first</span><span>Lead via API</span></p>
+              <p class="acoes"><a class="btn" href="modelos/servicos-residenciais/">Ver demonstração</a><a href="https://github.com/tncostatec/modelos-de-sites/tree/main/modelos/servicos-residenciais">Código e README</a></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="backend" class="bloco">
+      <div class="wrap">
+        <h2>Backend e integrações</h2>
+        <p>Todos os formulários falam o mesmo contrato com uma API em <strong>FastAPI + SQLite</strong>: leads e
+          agendamento com horários livres. Honeypot, consentimento LGPD gravado com hora e IP, limite por IP, corrida de
+          agendamento decidida por restrição <code>UNIQUE</code> no banco (não pela leitura anterior), CORS restrito e
+          repasse por webhook em segundo plano com tentativas, para n8n, Make ou CRM. Quinze testes sem rede e um
+          <code>docker-compose</code> com rootfs somente leitura, <code>cap_drop: ALL</code> e teto de recursos.</p>
+        <p class="acoes"><a class="btn" href="https://github.com/tncostatec/modelos-de-sites/tree/main/backend">README do backend</a></p>
+      </div>
+    </section>
+
+    <section id="verificacao" class="bloco bloco--alt">
+      <div class="wrap">
+        <h2>Como cada modelo é verificado</h2>
+        <ul class="lista">
+          <li><strong>Layout</strong> em 390 e 1440 px sem rolagem horizontal, com Playwright num servidor local (não em <code>file://</code>, que esconde erro de caminho e de <code>fetch</code>).</li>
+          <li><strong>Console limpo</strong>: nenhum erro de script ou recurso faltando.</li>
+          <li><strong>Acessibilidade e SEO básicos</strong>: <code>lang</code>, viewport, um <code>h1</code>, landmarks, link de pular, <code>alt</code> em imagens, canonical, Open Graph, JSON-LD, nenhum script ou handler inline.</li>
+          <li><strong>Convenções escritas</strong> em <code>CONVENCOES.md</code>: placeholders fictícios, <code>config.js</code> por cliente, contrato dos formulários com modo sem backend.</li>
+          <li><strong>CI</strong>: o mesmo <code>tools/qa.py</code> e o <code>pytest</code> do backend rodam a cada push; o Pages reconstrói o modelo multipágina e publica.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="wrap">
+      <p><strong>TN Costa Tecnologia</strong> · Tiago Costa · <a href="https://www.tncostatecnologia.com.br/">tncostatecnologia.com.br</a> · <a href="https://github.com/tncostatec">GitHub</a> · <a href="https://www.linkedin.com/in/tiago-costa-7470587a">LinkedIn</a></p>
+      <p>Código sob licença MIT. Conteúdo dos modelos é fictício e serve só de demonstração.</p>
+    </div>
+  </footer>
+</body>
+</html>

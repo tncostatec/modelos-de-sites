@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{titulo}}</title>
+  <meta name="description" content="{{descricao}}">
+  <link rel="canonical" href="{{canonical}}">
+  <meta property="og:title" content="{{titulo}}">
+  <meta property="og:description" content="{{descricao}}">
+  <meta property="og:type" content="{{og_type}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#0f1e33">
+  <link rel="icon" href="{{raiz}}assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="{{raiz}}assets/css/estilo.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Andrade & Lima Advocacia",
+    "description": "Escritório de advocacia com atuação nas áreas cível, trabalhista, de família, do consumidor, empresarial e previdenciária. Atendimento mediante agendamento.",
+    "url": "https://www.exemplo.com.br/",
+    "telephone": "+55 00 00000-0000",
+    "email": "contato@exemplo.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Cidade",
+      "addressRegion": "UF",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -1.455, "longitude": -48.49 },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00" }
+    ],
+    "areaServed": "Cidade/UF",
+    "knowsAbout": ["Direito Civil", "Direito do Trabalho", "Direito de Família e Sucessões", "Direito do Consumidor", "Direito Empresarial", "Direito Previdenciário"]
+  }
+  </script>
+  {{jsonld_extra}}
+  <script src="{{raiz}}config.js" defer></script>
+  <script src="{{raiz}}assets/js/modelo.js" defer></script>
+  <script src="{{raiz}}assets/js/pagina.js" defer></script>
+  <script src="{{raiz}}assets/js/formulario.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="topo-interno">
+      <a class="marca" href="{{raiz}}index.html" aria-label="Andrade e Lima Advocacia, página inicial">
+        <span class="marca-nome">Andrade <em>&amp;</em> Lima</span>
+        <span class="marca-sub">Advocacia</span>
+      </a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-botao-barras" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+      <nav id="menu-principal" class="menu" aria-label="Principal">
+        <ul class="menu-lista">
+          <li><a href="{{raiz}}index.html" data-pagina="index">Início</a></li>
+          <li><a href="{{raiz}}areas-de-atuacao/index.html" data-pagina="areas-de-atuacao">Áreas de atuação</a></li>
+          <li><a href="{{raiz}}equipe/index.html" data-pagina="equipe">Equipe</a></li>
+          <li><a href="{{raiz}}blog/index.html" data-pagina="blog">Blog</a></li>
+          <li><a href="{{raiz}}contato/index.html" data-pagina="contato">Contato</a></li>
+        </ul>
+        <a class="botao botao-contorno menu-acao" href="{{raiz}}contato/index.html">Agendar consulta</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+{{conteudo}}
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      <div class="rodape-marca">
+        <p class="marca-nome">Andrade <em>&amp;</em> Lima</p>
+        <p class="rodape-nota">Sociedade de advogados inscrita na OAB/UF sob o nº 00.000. Atendimento mediante agendamento, presencial ou por videochamada.</p>
+      </div>
+      <div class="rodape-bloco">
+        <h2 class="rodape-titulo">Contato</h2>
+        <address class="rodape-endereco">
+          <a data-modelo-link="telefone" href="tel:+550000000000"><span data-modelo="telefone">(00) 00000-0000</span></a>
+          <a data-modelo-link="email" href="mailto:contato@exemplo.com.br"><span data-modelo="email">contato@exemplo.com.br</span></a>
+          <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span>
+        </address>
+      </div>
+      <div class="rodape-bloco">
+        <h2 class="rodape-titulo">Horários</h2>
+        <dl class="horarios">
+          <div><dt>Segunda a sexta</dt><dd data-modelo="horarios.seg_sex">09:00–18:00</dd></div>
+          <div><dt>Sábado</dt><dd data-modelo="horarios.sab">mediante agendamento</dd></div>
+          <div><dt>Domingo</dt><dd data-modelo="horarios.dom">fechado</dd></div>
+        </dl>
+      </div>
+      <div class="rodape-bloco">
+        <h2 class="rodape-titulo">Navegação</h2>
+        <ul class="rodape-links">
+          <li><a href="{{raiz}}areas-de-atuacao/index.html">Áreas de atuação</a></li>
+          <li><a href="{{raiz}}equipe/index.html">Equipe</a></li>
+          <li><a href="{{raiz}}blog/index.html">Blog</a></li>
+          <li><a href="{{raiz}}contato/index.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-base">
+      <p>© <span data-ano>2026</span> <span data-modelo="nome">Andrade &amp; Lima Advocacia</span>. Conteúdo meramente informativo, em conformidade com o Provimento 205/2021 da OAB. Não substitui consulta jurídica.</p>
+    </div>
+  </footer>
+</body>
+</html>

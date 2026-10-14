@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prumo Reformas e Reparos · Orçamento em 60 segundos</title>
+  <meta name="description" content="Elétrica, hidráulica, pintura e reformas residenciais em Cidade/UF. Peça o orçamento pelo celular em 60 segundos: profissionais identificados, orçamento por escrito e garantia do serviço.">
+  <link rel="canonical" href="https://www.exemplo.com.br/">
+  <meta property="og:title" content="Prumo Reformas e Reparos · Orçamento em 60 segundos">
+  <meta property="og:description" content="Elétrica, hidráulica, pintura e reformas residenciais. Peça o orçamento pelo celular em 60 segundos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.exemplo.com.br/">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#26292e">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap">
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Prumo Reformas e Reparos",
+    "description": "Reparos e reformas residenciais: elétrica, hidráulica, pintura, montagem e pequenas obras, com orçamento por escrito e garantia do serviço.",
+    "url": "https://www.exemplo.com.br/",
+    "telephone": "+55 00 00000-0000",
+    "email": "contato@exemplo.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Cidade",
+      "addressRegion": "UF",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -1.455, "longitude": -48.49 },
+    "areaServed": [
+      { "@type": "Place", "name": "Centro" },
+      { "@type": "Place", "name": "Jardim das Palmeiras" },
+      { "@type": "Place", "name": "Vila Nova" },
+      { "@type": "Place", "name": "Bela Vista" },
+      { "@type": "Place", "name": "Parque Industrial" },
+      { "@type": "Place", "name": "Alto da Serra" },
+      { "@type": "Place", "name": "Santa Luzia" },
+      { "@type": "Place", "name": "Novo Horizonte" }
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:30", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:00" }
+    ],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Elétrica residencial" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hidráulica" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pintura" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reformas" } }
+    ]
+  }
+  </script>
+  <script src="config.js" defer></script>
+  <script src="assets/js/modelo.js" defer></script>
+  <script src="assets/js/pagina.js" defer></script>
+  <script src="assets/js/orcamento.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ícones (sprite SVG inline; usados com <use href="#i-…">) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-eletrica" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></symbol>
+    <symbol id="i-hidraulica" viewBox="0 0 24 24"><path d="M12 3c-3.5 4.2-6 7.6-6 10.7a6 6 0 0 0 12 0C18 10.6 15.5 7.2 12 3z"/><path d="M9.3 14.3a2.7 2.7 0 0 0 2.2 2.6"/></symbol>
+    <symbol id="i-pintura" viewBox="0 0 24 24"><rect x="3" y="4" width="13" height="6" rx="1.5"/><path d="M16 7h3.5a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1H11v2.5"/><rect x="9.5" y="15" width="3" height="6" rx="1"/></symbol>
+    <symbol id="i-reformas" viewBox="0 0 24 24"><rect x="3" y="5" width="8" height="5.5" rx=".5"/><rect x="13" y="5" width="8" height="5.5" rx=".5"/><rect x="3" y="13.5" width="4" height="5.5" rx=".5"/><rect x="9" y="13.5" width="8" height="5.5" rx=".5"/><rect x="19" y="13.5" width="2" height="5.5" rx=".5"/></symbol>
+    <symbol id="i-montagem" viewBox="0 0 24 24"><path d="M14.5 6.5a4.5 4.5 0 0 0-5.8 5.8L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 5.8-5.8l-2.6 2.6-2.5-.5-.5-2.5 2.6-2.6z"/></symbol>
+    <symbol id="i-reparos" viewBox="0 0 24 24"><path d="M13.5 2.5 21.5 10.5l-3.5 3.5L10 6z"/><path d="M11.8 7.8 3 16.5 7.5 21l8.7-8.8"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrastar" viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></symbol>
+    <symbol id="i-telefone" viewBox="0 0 24 24"><path d="M5 3.5h3.5l1.8 4.5-2.3 1.4a11.5 11.5 0 0 0 6.6 6.6l1.4-2.3 4.5 1.8V19a2 2 0 0 1-2 2A16.5 16.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M9.2 8.6c.3-.6 1-.5 1.3 0l.6 1.3c.2.4 0 .7-.3 1l-.4.4c.6 1.2 1.6 2.2 2.8 2.8l.4-.4c.3-.3.6-.5 1-.3l1.3.6c.5.3.6 1 0 1.3-.9.7-2 .8-3 .3a9 9 0 0 1-4-4c-.5-1-.4-2.1.3-3z"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-cracha" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="2.5"/><path d="M8 17c.8-2 2.3-3 4-3s3.2 1 4 3"/></symbol>
+    <symbol id="i-estrela" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.7l5.9-.8z"/></symbol>
+  </svg>
+
+  <header class="topo">
+    <div class="topo-interno">
+      <a class="marca" href="index.html" aria-label="Prumo Reformas e Reparos, início">
+        <svg class="marca-icone" viewBox="0 0 32 40" aria-hidden="true" focusable="false"><path d="M16 1v12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="16" cy="14" r="3" fill="currentColor"/><path d="M16 18l9 10-9 12-9-12z" fill="#d9561b"/></svg>
+        <span class="marca-texto"><span class="marca-nome">Prumo</span><span class="marca-sub">Reformas e reparos</span></span>
+      </a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-botao-barras" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+      <nav id="menu-principal" class="menu" aria-label="Principal">
+        <ul class="menu-lista">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#antes-depois">Antes e depois</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#area">Onde atendemos</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+        <a class="botao botao-laranja menu-acao" href="#orcamento">Pedir orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <!-- ===== Hero + formulário ===== -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero-interno">
+        <div class="hero-texto">
+          <p class="olho">Reformas e reparos residenciais · Cidade/UF</p>
+          <h1 id="hero-titulo">Reparo ou reforma, orçamento em <span class="destaque">60 segundos</span>.</h1>
+          <p class="hero-sub">Elétrica, hidráulica, pintura e reformas com profissionais identificados e orçamento por escrito. Descreva o problema no formulário; a gente responde em horário comercial.</p>
+          <p class="hero-contato">Prefere falar? <a data-modelo-link="telefone" href="tel:+550000000000">Ligue <span data-modelo="telefone">(00) 00000-0000</span></a> ou <a data-modelo-link="whatsapp" data-whatsapp-texto="Olá! Quero um orçamento." href="#" rel="noopener" target="_blank">chame no WhatsApp</a>.</p>
+        </div>
+
+        <section class="orcamento" id="orcamento" aria-labelledby="orcamento-titulo">
+          <form class="orcamento-form" id="form-orcamento" novalidate>
+            <div class="orcamento-cabeca">
+              <h2 id="orcamento-titulo">Orçamento em 60 segundos</h2>
+              <p class="orcamento-etapa"><span data-etapa-atual>Etapa 1 de 3</span> · <span data-etapa-nome>O que você precisa?</span></p>
+              <div class="progresso" role="progressbar" aria-label="Progresso do pedido" aria-valuemin="0" aria-valuemax="3" aria-valuenow="1" aria-valuetext="Etapa 1 de 3"><span class="progresso-barra"></span></div>
+            </div>
+
+            <fieldset class="etapa" data-etapa="1">
+              <legend>Qual serviço você precisa?</legend>
+              <div class="servico-grade" data-grupo="servico">
+                <label class="servico-opcao"><input class="visualmente-oculto" type="radio" name="servico" value="Elétrica" aria-describedby="erro-servico"><span class="servico-opcao-corpo"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-eletrica"/></svg>Elétrica</span></label>
+                <label class="servico-opcao"><input class="visualmente-oculto" type="radio" name="servico" value="Hidráulica"><span class="servico-opcao-corpo"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-hidraulica"/></svg>Hidráulica</span></label>
+                <label class="servico-opcao"><input class="visualmente-oculto" type="radio" name="servico" value="Pintura"><span class="servico-opcao-corpo"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-pintura"/></svg>Pintura</span></label>
+                <label class="servico-opcao"><input class="visualmente-oculto" type="radio" name="servico" value="Reforma"><span class="servico-opcao-corpo"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-reformas"/></svg>Reforma</span></label>
+                <label class="servico-opcao"><input class="visualmente-oculto" type="radio" name="servico" value="Montagem e instalação"><span class="servico-opcao-corpo"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-montagem"/></svg>Montagem</span></label>
+                <label class="servico-opcao"><input class="visualmente-oculto" type="radio" name="servico" value="Reparo rápido"><span class="servico-opcao-corpo"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-reparos"/></svg>Reparo rápido</span></label>
+              </div>
+              <p class="campo-erro" id="erro-servico" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset class="etapa" data-etapa="2" hidden>
+              <legend>Conte um pouco mais</legend>
+              <fieldset class="campo campo-grupo" data-grupo="urgencia">
+                <legend>Para quando?</legend>
+                <div class="pilulas">
+                  <label class="pilula"><input class="visualmente-oculto" type="radio" name="urgencia" value="Urgente (hoje ou amanhã)" aria-describedby="erro-urgencia"><span class="pilula-corpo">Urgente</span></label>
+                  <label class="pilula"><input class="visualmente-oculto" type="radio" name="urgencia" value="Esta semana"><span class="pilula-corpo">Esta semana</span></label>
+                  <label class="pilula"><input class="visualmente-oculto" type="radio" name="urgencia" value="Sem pressa"><span class="pilula-corpo">Sem pressa</span></label>
+                </div>
+                <p class="campo-erro" id="erro-urgencia" aria-live="polite"></p>
+              </fieldset>
+              <div class="campo">
+                <label for="descricao">O que está acontecendo?</label>
+                <textarea id="descricao" name="descricao" rows="3" required minlength="10" placeholder="Ex.: a tomada da cozinha parou de funcionar" aria-describedby="dica-descricao erro-descricao"></textarea>
+                <p class="campo-dica" id="dica-descricao">Uma frase basta. Fotos podem ser enviadas depois pelo WhatsApp.</p>
+                <p class="campo-erro" id="erro-descricao" aria-live="polite"></p>
+              </div>
+              <div class="campo">
+                <label for="bairro">Bairro</label>
+                <input id="bairro" name="bairro" type="text" list="lista-bairros" autocomplete="address-level3" required aria-describedby="erro-bairro">
+                <datalist id="lista-bairros">
+                  <option value="Centro"></option><option value="Jardim das Palmeiras"></option><option value="Vila Nova"></option><option value="Bela Vista"></option>
+                  <option value="Parque Industrial"></option><option value="Alto da Serra"></option><option value="Santa Luzia"></option><option value="Novo Horizonte"></option>
+                </datalist>
+                <p class="campo-erro" id="erro-bairro" aria-live="polite"></p>
+              </div>
+            </fieldset>
+
+            <fieldset class="etapa" data-etapa="3" hidden>
+              <legend>Como falamos com você?</legend>
+              <div class="campo">
+                <label for="nome">Seu nome</label>
+                <input id="nome" name="nome" type="text" autocomplete="name" required minlength="3" aria-describedby="erro-nome">
+                <p class="campo-erro" id="erro-nome" aria-live="polite"></p>
+              </div>
+              <div class="campo">
+                <label for="telefone">Telefone com DDD</label>
+                <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(00) 00000-0000" aria-describedby="erro-telefone">
+                <p class="campo-erro" id="erro-telefone" aria-live="polite"></p>
+              </div>
+              <div class="campo consentimento">
+                <input id="consentimento" name="consentimento" type="checkbox" required aria-describedby="erro-consentimento">
+                <label for="consentimento">Autorizo o contato por telefone ou WhatsApp apenas para este orçamento, conforme a Lei Geral de Proteção de Dados.</label>
+                <p class="campo-erro" id="erro-consentimento" aria-live="polite"></p>
+              </div>
+            </fieldset>
+
+            <div class="hp" aria-hidden="true">
+              <label for="site">Site</label>
+              <input id="site" name="site" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <p class="form-aviso" data-aviso-sem-api hidden>Demonstração sem servidor: o pedido abre no WhatsApp.</p>
+            <p class="form-erro" data-form-erro role="alert" hidden></p>
+            <div class="orcamento-acoes">
+              <button type="button" class="botao botao-fantasma" data-voltar hidden>Voltar</button>
+              <button type="button" class="botao botao-laranja" data-avancar>Continuar<svg class="icone" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></button>
+              <button type="submit" class="botao botao-laranja" data-enviar hidden>Enviar pedido</button>
+            </div>
+            <p class="orcamento-rodape">Sem compromisso. Respondemos em horário comercial.</p>
+          </form>
+
+          <div class="orcamento-sucesso" data-sucesso hidden tabindex="-1">
+            <svg class="orcamento-sucesso-icone" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>
+            <h2>Pedido enviado</h2>
+            <p data-sucesso-texto></p>
+            <a class="botao botao-laranja" data-sucesso-link href="#" hidden>Abrir WhatsApp</a>
+            <button type="button" class="botao botao-fantasma" data-novo>Fazer outro pedido</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ===== Garantias (chips) ===== -->
+    <section class="garantias" aria-label="Garantias">
+      <ul>
+        <li><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-relogio"/></svg>Orçamento sem compromisso</li>
+        <li><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-escudo"/></svg>Garantia do serviço por escrito</li>
+        <li><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-cracha"/></svg>Profissionais identificados</li>
+      </ul>
+    </section>
+
+    <!-- ===== Serviços ===== -->
+    <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="secao-interno">
+        <div class="secao-cabeca">
+          <p class="olho">Serviços</p>
+          <h2 id="servicos-titulo">Do reparo de meia hora à reforma de semanas</h2>
+          <p>Tudo com orçamento por escrito antes de começar e um responsável para falar com você do início ao fim.</p>
+        </div>
+        <ul class="servicos">
+          <li class="servico revelar">
+            <svg class="servico-icone" aria-hidden="true" focusable="false"><use href="#i-eletrica"/></svg>
+            <h3>Elétrica</h3>
+            <p>Tomadas, interruptores, disjuntores, chuveiros, luminárias, ventiladores e revisão de quadro.</p>
+            <button type="button" class="servico-botao" data-escolher="Elétrica">Pedir orçamento<svg class="icone" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></button>
+          </li>
+          <li class="servico revelar">
+            <svg class="servico-icone" aria-hidden="true" focusable="false"><use href="#i-hidraulica"/></svg>
+            <h3>Hidráulica</h3>
+            <p>Vazamentos, torneiras, descargas, sifões, caixas d'água e troca de registros.</p>
+            <button type="button" class="servico-botao" data-escolher="Hidráulica">Pedir orçamento<svg class="icone" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></button>
+          </li>
+          <li class="servico revelar">
+            <svg class="servico-icone" aria-hidden="true" focusable="false"><use href="#i-pintura"/></svg>
+            <h3>Pintura</h3>
+            <p>Paredes, tetos, portões e grades, com preparação da superfície e proteção dos móveis.</p>
+            <button type="button" class="servico-botao" data-escolher="Pintura">Pedir orçamento<svg class="icone" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></button>
+          </li>
+          <li class="servico revelar">
+            <svg class="servico-icone" aria-hidden="true" focusable="false"><use href="#i-reformas"/></svg>
+            <h3>Reformas</h3>
+            <p>Banheiro, cozinha, pisos e revestimentos, com cronograma combinado e entrega limpa.</p>
+            <button type="button" class="servico-botao" data-escolher="Reforma">Pedir orçamento<svg class="icone" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></button>
+          </li>
+          <li class="servico revelar">
+            <svg class="servico-icone" aria-hidden="true" focusable="false"><use href="#i-montagem"/></svg>
+            <h3>Montagem e instalação</h3>
+            <p>Móveis, prateleiras, cortinas, suportes de TV, varais e fechaduras.</p>
+            <button type="button" class="servico-botao" data-escolher="Montagem e instalação">Pedir orçamento<svg class="icone" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></button>
+          </li>
+          <li class="servico revelar">
+            <svg class="servico-icone" aria-hidden="true" focusable="false"><use href="#i-reparos"/></svg>
+            <h3>Reparos rápidos</h3>
+            <p>Portas que não fecham, rejunte, vedação de box, furos na parede e consertos do dia a dia.</p>
+            <button type="button" class="servico-botao" data-escolher="Reparo rápido">Pedir orçamento<svg class="icone" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Antes e depois ===== -->
+    <section class="secao secao-areia" id="antes-depois" aria-labelledby="comparar-titulo">
+      <div class="secao-interno comparador-grade">
+        <div class="secao-cabeca">
+          <p class="olho">Antes e depois</p>
+          <h2 id="comparar-titulo">Parede com infiltração, tratada e pintada</h2>
+          <p>Ilustração de um serviço típico: tratamento da umidade, reboco, massa corrida, duas demãos de tinta e troca da tomada. Arraste para comparar.</p>
+        </div>
+        <div class="comparador revelar">
+          <div class="comparador-cenas" aria-hidden="true">
+            <svg class="cena cena-depois" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+              <rect width="800" height="420" fill="#f4f0e9"/>
+              <rect width="300" height="420" fill="#d9561b"/>
+              <rect x="150" y="140" width="140" height="104" fill="#fff" stroke="#26292e" stroke-width="5"/>
+              <rect x="165" y="155" width="110" height="74" fill="#f1dcc8"/>
+              <path d="M165 229l34-38 24 24 22-16 30 30z" fill="#d9a06a"/>
+              <circle cx="258" cy="172" r="8" fill="#e8b96a"/>
+              <rect x="470" y="196" width="230" height="11" rx="2" fill="#8b5e3c"/>
+              <path d="M490 207v16M680 207v16" stroke="#6e4a2f" stroke-width="5" stroke-linecap="round"/>
+              <rect x="500" y="156" width="36" height="40" rx="5" fill="#b85c38"/>
+              <ellipse cx="518" cy="146" rx="24" ry="12" fill="#5f8a4a"/>
+              <ellipse cx="505" cy="132" rx="12" ry="18" fill="#6f9a57"/>
+              <ellipse cx="532" cy="134" rx="12" ry="16" fill="#4f7a3e"/>
+              <rect x="590" y="154" width="14" height="42" fill="#26292e"/>
+              <rect x="606" y="162" width="12" height="34" fill="#d9561b"/>
+              <rect x="620" y="150" width="16" height="46" fill="#3a3e45"/>
+              <rect x="638" y="168" width="10" height="28" fill="#c9a27a"/>
+              <rect x="705" y="300" width="38" height="54" rx="5" fill="#fff" stroke="#cfcbc4" stroke-width="2"/>
+              <circle cx="724" cy="318" r="5" fill="none" stroke="#9a9ea5" stroke-width="2"/>
+              <circle cx="724" cy="338" r="5" fill="none" stroke="#9a9ea5" stroke-width="2"/>
+              <rect y="420" width="800" height="18" fill="#fff"/>
+              <rect y="438" width="800" height="62" fill="#c69c6d"/>
+              <path d="M0 460h800M0 482h800" stroke="#b58d5e" stroke-width="1.5"/>
+              <path d="M120 438v22M360 438v22M600 438v22M240 460v22M480 460v22M720 460v22M60 482v18M300 482v18M540 482v18M780 482v18" stroke="#b58d5e" stroke-width="1.5"/>
+            </svg>
+            <svg class="cena cena-antes" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+              <rect width="800" height="420" fill="#d8d1c3"/>
+              <rect width="300" height="420" fill="#c9a98e"/>
+              <path d="M80 300l60-22 22 42-52 34z" fill="#e7e0d3"/>
+              <path d="M190 110l46 10-8 44-48-6z" fill="#e7e0d3"/>
+              <path d="M30 60l40 18-14 36-42-10z" fill="#e7e0d3"/>
+              <ellipse cx="540" cy="110" rx="130" ry="72" fill="#8a6f52" opacity=".38"/>
+              <ellipse cx="610" cy="160" rx="72" ry="92" fill="#6e5a44" opacity=".28"/>
+              <path d="M470 150v110M500 170v80M650 190v120" stroke="#7b6650" stroke-width="7" stroke-linecap="round" opacity=".35"/>
+              <path d="M340 30l-18 62 24 48-16 70 20 64" fill="none" stroke="#4a4038" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M322 92l-34 22M346 140l30 12M330 210l-28 30" fill="none" stroke="#4a4038" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="40" cy="400" r="9" fill="#5c6b4f" opacity=".5"/><circle cx="68" cy="392" r="12" fill="#5c6b4f" opacity=".45"/><circle cx="96" cy="406" r="8" fill="#5c6b4f" opacity=".5"/><circle cx="120" cy="396" r="6" fill="#5c6b4f" opacity=".4"/>
+              <circle cx="220" cy="150" r="3" fill="#6b5b4b"/><circle cx="470" cy="200" r="3" fill="#6b5b4b"/><circle cx="690" cy="200" r="3" fill="#6b5b4b"/>
+              <rect x="705" y="300" width="38" height="54" rx="5" fill="#e9e2d2" stroke="#8a847a" stroke-width="2"/>
+              <path d="M724 354c-14 24 6 36 10 52" fill="none" stroke="#26292e" stroke-width="3"/>
+              <rect y="420" width="800" height="18" fill="#a39b8f"/>
+              <path d="M330 420h60v18h-60z" fill="#8f877a"/>
+              <rect y="438" width="800" height="62" fill="#a98f6e"/>
+              <path d="M0 460h800M0 482h800" stroke="#8e7556" stroke-width="1.5"/>
+              <path d="M120 438v22M360 438v22M600 438v22M240 460v22M480 460v22M720 460v22M60 482v18M300 482v18M540 482v18M780 482v18" stroke="#8e7556" stroke-width="1.5"/>
+            </svg>
+            <span class="comparador-rotulo comparador-rotulo-antes">Antes</span>
+            <span class="comparador-rotulo comparador-rotulo-depois">Depois</span>
+            <div class="comparador-divisor"><span class="comparador-alca"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-arrastar"/></svg></span></div>
+          </div>
+          <label class="comparador-controle-rotulo" for="comparador-controle">Arraste para comparar o antes e o depois</label>
+          <input class="comparador-controle" id="comparador-controle" type="range" min="0" max="100" value="50" step="1" aria-valuetext="metade antes, metade depois">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Como funciona (fio de prumo) ===== -->
+    <section class="secao" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="secao-interno como-grade">
+        <div class="secao-cabeca">
+          <p class="olho">Como funciona</p>
+          <h2 id="como-titulo">Do pedido ao serviço pronto, em quatro passos</h2>
+          <p>Nessa ordem, sempre. Você só paga pelo que aprovou por escrito, e sabe quem vai entrar na sua casa antes de abrir a porta.</p>
+        </div>
+        <div class="prumo-wrap">
+          <ol class="prumo">
+            <li class="revelar">
+              <h3>Você pede o orçamento</h3>
+              <p>Pelo formulário, por telefone ou WhatsApp. Leva um minuto e não compromete a nada.</p>
+            </li>
+            <li class="revelar">
+              <h3>Avaliação por fotos ou visita</h3>
+              <p>Serviços simples são orçados por fotos no mesmo dia útil. Reformas recebem visita sem custo nos bairros atendidos.</p>
+            </li>
+            <li class="revelar">
+              <h3>Orçamento por escrito</h3>
+              <p>Material, mão de obra e prazo discriminados. Você aprova quando quiser, e só se quiser.</p>
+            </li>
+            <li class="revelar">
+              <h3>Serviço feito e garantido</h3>
+              <p>Profissional identificado, local limpo ao final e prazo de garantia registrado no recibo.</p>
+            </li>
+          </ol>
+          <svg class="prumo-peso" viewBox="0 0 32 40" aria-hidden="true" focusable="false"><path d="M16 0v12" stroke="#26292e" stroke-width="2.5"/><circle cx="16" cy="14" r="3" fill="#26292e"/><path d="M16 18l9 10-9 12-9-12z" fill="currentColor"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Área de atendimento ===== -->
+    <section class="secao secao-areia" id="area" aria-labelledby="area-titulo">
+      <div class="secao-interno area-grade">
+        <div>
+          <div class="secao-cabeca">
+            <p class="olho">Onde atendemos</p>
+            <h2 id="area-titulo">Bairros atendidos</h2>
+            <p>Região central e os bairros abaixo, com deslocamento incluso no orçamento. Não achou o seu? Pergunte: perto dessas áreas, geralmente dá.</p>
+          </div>
+          <ul class="bairros">
+            <li>Centro</li><li>Jardim das Palmeiras</li><li>Vila Nova</li><li>Bela Vista</li>
+            <li>Parque Industrial</li><li>Alto da Serra</li><li>Santa Luzia</li><li>Novo Horizonte</li>
+          </ul>
+          <p class="area-nota">Base em <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span>. <a data-modelo-link="mapa" href="https://www.openstreetmap.org/" rel="noopener" target="_blank">Abrir no OpenStreetMap</a>.</p>
+        </div>
+        <div class="mapa">
+          <iframe data-modelo-mapa title="Mapa da área de atendimento" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Avaliações ===== -->
+    <section class="secao" id="avaliacoes" aria-labelledby="avaliacoes-titulo">
+      <div class="secao-interno">
+        <div class="secao-cabeca">
+          <p class="olho">Avaliações</p>
+          <h2 id="avaliacoes-titulo">O que os clientes dizem</h2>
+          <p>Depoimentos de exemplo, só para mostrar o bloco. Num site real entram avaliações verdadeiras, com autorização de quem as escreveu.</p>
+        </div>
+        <ul class="avaliacoes">
+          <li class="revelar">
+            <figure class="avaliacao">
+              <div class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg></div>
+              <blockquote>Tomada da cozinha e chuveiro resolvidos na mesma visita. Chegaram no horário combinado e deixaram tudo limpo.</blockquote>
+              <figcaption><span>Ana P.</span> · Jardim das Palmeiras <span class="etiqueta">exemplo</span></figcaption>
+            </figure>
+          </li>
+          <li class="revelar">
+            <figure class="avaliacao">
+              <div class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg></div>
+              <blockquote>Pintura da sala e do corredor em dois dias, com o valor igual ao do orçamento. Voltaria a chamar.</blockquote>
+              <figcaption><span>Carlos M.</span> · Vila Nova <span class="etiqueta">exemplo</span></figcaption>
+            </figure>
+          </li>
+          <li class="revelar">
+            <figure class="avaliacao">
+              <div class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg><svg><use href="#i-estrela"/></svg></div>
+              <blockquote>Acharam um vazamento embaixo da pia que outros dois já tinham procurado. Explicaram o problema antes de mexer.</blockquote>
+              <figcaption><span>Luciana R.</span> · Centro <span class="etiqueta">exemplo</span></figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="secao secao-areia" id="faq" aria-labelledby="faq-titulo">
+      <div class="secao-interno secao-estreita">
+        <div class="secao-cabeca">
+          <p class="olho">Dúvidas comuns</p>
+          <h2 id="faq-titulo">Antes de pedir, muita gente pergunta</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>A visita para orçamento é cobrada?</summary>
+            <div class="faq-resposta"><p>Nos bairros atendidos, não. O orçamento é feito por fotos ou em visita sem custo, e você só paga se aprovar o serviço.</p></div>
+          </details>
+          <details>
+            <summary>Vocês fornecem o material?</summary>
+            <div class="faq-resposta"><p>Como preferir: podemos comprar com nota em seu nome, ou você compra e a gente instala. O orçamento mostra as duas opções separadas.</p></div>
+          </details>
+          <details>
+            <summary>Em quanto tempo atendem?</summary>
+            <div class="faq-resposta"><p>Urgências (vazamento, falta de energia) entram na agenda do mesmo dia útil quando há vaga. Serviços comuns, em poucos dias. Reformas seguem o cronograma combinado por escrito.</p></div>
+          </details>
+          <details>
+            <summary>O serviço tem garantia?</summary>
+            <div class="faq-resposta"><p>Sim. O prazo varia conforme o tipo de serviço e vem escrito no recibo. Se algo voltar a dar problema dentro dele, a gente refaz sem custo.</p></div>
+          </details>
+          <details>
+            <summary>Como é o pagamento?</summary>
+            <div class="faq-resposta"><p>Pix, cartão ou dinheiro, ao final do serviço. Em reformas, por etapas concluídas, conforme o cronograma.</p></div>
+          </details>
+          <details>
+            <summary>Atendem em condomínio?</summary>
+            <div class="faq-resposta"><p>Sim. A equipe vai identificada, com documento, e segue as regras de horário e acesso do condomínio.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Chamada final ===== -->
+    <section class="chamada">
+      <div class="secao-interno">
+        <h2>Pronto para resolver aquilo que está esperando?</h2>
+        <p>Um minuto para pedir, resposta em horário comercial, orçamento por escrito.</p>
+        <a class="botao botao-laranja botao-grande" href="#orcamento">Pedir orçamento</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      <div class="rodape-marca">
+        <p class="marca-nome">Prumo</p>
+        <p class="rodape-nota">Reformas e reparos residenciais. Nome, telefone, endereço e avaliações são fictícios: este é um modelo de demonstração.</p>
+      </div>
+      <div class="rodape-bloco">
+        <h2 class="rodape-titulo">Contato</h2>
+        <address class="rodape-endereco">
+          <a data-modelo-link="telefone" href="tel:+550000000000"><span data-modelo="telefone">(00) 00000-0000</span></a>
+          <a data-modelo-link="whatsapp" data-whatsapp-texto="Olá! Quero um orçamento." href="#" rel="noopener" target="_blank">WhatsApp</a>
+          <a data-modelo-link="email" href="mailto:contato@exemplo.com.br"><span data-modelo="email">contato@exemplo.com.br</span></a>
+          <span data-modelo="endereco">Rua Exemplo, 123 · Bairro · Cidade/UF</span>
+        </address>
+      </div>
+      <div class="rodape-bloco">
+        <h2 class="rodape-titulo">Horários</h2>
+        <dl class="horarios">
+          <div><dt>Segunda a sexta</dt><dd data-modelo="horarios.seg_sex">07:30–18:00</dd></div>
+          <div><dt>Sábado</dt><dd data-modelo="horarios.sab">08:00–12:00</dd></div>
+          <div><dt>Domingo</dt><dd data-modelo="horarios.dom">fechado</dd></div>
+        </dl>
+      </div>
+      <div class="rodape-bloco">
+        <h2 class="rodape-titulo">Atalhos</h2>
+        <ul class="rodape-links">
+          <li><a href="#orcamento">Pedir orçamento</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#area">Onde atendemos</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-base">
+      <p>© <span data-ano>2026</span> <span data-modelo="nome">Prumo Reformas e Reparos</span> · CNPJ 00.000.000/0001-00</p>
+    </div>
+  </footer>
+
+  <nav class="barra-contato" aria-label="Contato rápido">
+    <a class="barra-botao" data-modelo-link="telefone" href="tel:+550000000000"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-telefone"/></svg>Ligar</a>
+    <a class="barra-botao barra-botao-whatsapp" data-modelo-link="whatsapp" data-whatsapp-texto="Olá! Quero um orçamento." href="#" rel="noopener" target="_blank"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+  </nav>
+  <a class="flutuante" data-modelo-link="whatsapp" data-whatsapp-texto="Olá! Quero um orçamento." href="#" rel="noopener" target="_blank"><svg class="icone" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+</body>
+</html>
